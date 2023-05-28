@@ -1,11 +1,13 @@
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
+
+import AppRoutes from './routes/AppRoutes'
 
 function App() {
+
   return (
-    <div className="App">
-      <h1>olee</h1>
-    </div>
-  );
+    <AppRoutes />
+  )
 }
 
-export default App;
+export default App

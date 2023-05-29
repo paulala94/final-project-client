@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import authService from '../../services/auth.services.js'
+import authService from '../../services/authService.js'
 import { useNavigate } from "react-router-dom"
 import './SignupForm.css'
 

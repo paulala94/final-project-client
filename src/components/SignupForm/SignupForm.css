@@ -1,0 +1,14 @@
+ .inputHover:hover {
+     border: 2px solid #00FF00;
+     /* -webkit-box-shadow: 0px 0px 31px 0px #8080ff inset;
+     -moz-box-shadow: 0px 0px 31px 0px #8080ff inset;
+     box-shadow: 0px 0px 31px 0px #8080ff inset; */
+ }
+
+ .inputHover {
+     background: white;
+ }
+
+ .form-control:focus {
+     box-shadow: none;
+ }

@@ -26,6 +26,15 @@ class UserService {
         return this.api.put(`/edit/${_id}`, userData)
     }
 
+    getUser(_id) {
+        return this.api.get(`/${_id}`)
+    }
+
+    deleteUser(_id) {
+        return this.api.delete(`/delete/${_id}`)
+    }
+
+ 
     // login(userData) {
     //     return this.api.post('/login', userData)
     // }

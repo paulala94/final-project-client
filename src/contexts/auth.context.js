@@ -29,7 +29,7 @@ function AuthProviderWrapper(props) {
         setIsLoading(false)
         setUser(null)
         removeToken()
-        navigate('/login')
+        // navigate('/login')
     }
 
     const authenticateUser = () => {

@@ -1,75 +1,57 @@
-import React from 'react';
-import { Input, Picklist, Option } from 'react-rainbow-components';
-
-
+import React, { useState } from 'react';
+import cardService from '../../services/cardService';
+import { Form, Button } from 'react-bootstrap';
 
 const CreateCardForm = () => {
+    const [cardData, setCardData] = useState({
+        name: '',
+        description: '',
+        genre: '',
+    });
 
-const { name, description, color} = signupData
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setCardData({ ...cardData, [name]: value });
+    };
 
-    const inputStyles = {
-    width: 300,
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        cardService
+            .create(cardData)
+            .then(() => alert('done'))
+            .catch((err) => console.log(err));
     };
 
     return (
+        <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="name">
+                {/* <Form.Label>Nombre</Form.Label> */}
+                <Form.Control type="text" placeholder='Nombre de la carta' value={cardData.name} onChange={handleInputChange} name="name" />
+            </Form.Group>
 
-        <div className="rainbow-m-vertical_x-large rainbow-m_auto">
-    <Input
-        label="Input Text"
-        placeholder="Nombre"
-        type="text"
-        className="rainbow-p-around_medium"
-        style={inputStyles}
-    />
-    <Input
-        label="Input Text"
-        placeholder="Descripción"
-        type="text"
-        className="rainbow-p-around_medium"
-        style={inputStyles}
-    />
-<Picklist
-        id="picklist-genre"
-        style={containerStyles}
-        onChange={value => setState({ value })}
-        value={state.value}
-        required
-        error="This Field is Required"
-        label="Select Building"
-        className="rainbow-m-vertical_x-large rainbow-p-horizontal_medium rainbow-m_auto"
-    >
-        <Option name="header" label="Género" variant="header" />
-        <Option name="option 1" label="Cine" />
-        <Option name="option 2" label="TV" />
-        <Option name="option 3" label="Historia" />
-        <Option name="option 3" label="Música" />
-        <Option name="option 3" label="Literatura" />
-        <Option name="option 3" label="Política" />
-        <Option name="option 3" label="Otros" />
+            <Form.Group className="mb-3" controlId="description">
+                {/* <Form.Label>Descripción</Form.Label> */}
+                <Form.Control type="text" placeholder='Descripción de la carta' value={cardData.description} onChange={handleInputChange} name="description" />
+            </Form.Group>
 
-    </Picklist>;
-    <Picklist
-        id="picklist-color"
-        style={containerStyles}
-        onChange={value => setState({ value })}
-        value={state.value}
-        required
-        error="This Field is Required"
-        label="Select Building"
-        className="rainbow-m-vertical_x-large rainbow-p-horizontal_medium rainbow-m_auto"
-    >
-        <Option name="header" label="Color" variant="header" />
-        <Option name="option 1" label="Rojo" />
-        <Option name="option 2" label="Naranja" />
-        <Option name="option 3" label="Amarillo" />
-        <Option name="option 3" label="Verde" />
-        <Option name="option 3" label="Azul" />
-        <Option name="option 3" label="Morado" />
-        <Option name="option 3" label="Rosa" />
+            <Form.Select className="mb-3" name="genre" defaultValue={"Elige un género"} onChange={handleInputChange}>
+                <option disabled>Elige un género</option>
+                <option value="Cine">Cine</option>
+                <option value="TV">TV</option>
+                <option value="Historia">Historia</option>
+                <option value="Música">Música</option>
+                <option value="Literatura">Literatura</option>
+                <option value="Política">Política</option>
+                <option value="Otros">Otros</option>
+            </Form.Select>
 
-    </Picklist>;
-</div>
-    )
-}
+            <div className="d-grid mt-3">
+                <Button variant="dark" type="submit">
+                    Crear carta
+                </Button>
+            </div>
+        </Form>
+    );
+};
 
-export default CreateCardForm
+export default CreateCardForm;

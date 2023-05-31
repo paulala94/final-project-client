@@ -4,6 +4,7 @@ import SignupPage from '../pages/SignupPage/SignupPage.jsx'
 import LoginPage from '../pages/LoginPage/LoginPage.jsx'
 import ProfilePage from '../pages/ProfilePage/ProfilePage.jsx'
 import EditProfilePage from '../pages/EditProfilePage/EditProfilePage.jsx'
+import CreateCardPage from '../pages/CreateCardPage/CreateCardPage'
 import PrivateRoute from './PrivateRoutes'
 
 
@@ -21,6 +22,9 @@ const AppRoutes = () => {
             </Route>
             <Route path="/editar-perfil/:_id" element={<PrivateRoute />} >
                 <Route path="" element={<EditProfilePage />} />
+            </Route>
+            <Route path="/crear-cartas" element={<PrivateRoute />} >
+                <Route path="" element={<CreateCardPage />} />
             </Route>
 
         </Routes>

@@ -75,7 +75,7 @@ const EditProfileForm = () => {
 
             <Form.Group className="mb-3" controlId="username">
                 <Form.Label >Nombre de usuario</Form.Label>
-                <Form.Control type="text" value={editData.username} onChange={handleInputChange} name="username" className="inputHover" />
+                <Form.Control type="text" value={username} onChange={handleInputChange} name="username" className="inputHover" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">

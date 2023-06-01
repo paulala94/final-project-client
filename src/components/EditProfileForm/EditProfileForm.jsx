@@ -29,6 +29,7 @@ const EditProfileForm = () => {
     }
 
     const getUser = () => {
+        
         userService
             .getUser(_id)
             .then(({ data }) => setEditData(data))
@@ -38,6 +39,7 @@ const EditProfileForm = () => {
     const handleSubmit = e => {
 
         e.preventDefault()
+
         userService
             .edit(_id, editData)
             .then(({ data }) => navigate('/perfil'))

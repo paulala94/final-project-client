@@ -23,7 +23,7 @@ const AppRoutes = () => {
             <Route path="/perfil" element={<ProfilePage />} />
             <Route path="/editar-perfil/:_id" element={<EditProfilePage />} />
             <Route path="/crear-cartas" element={<CreateCardPage />} />
-            <Route path="/tus-cartas" element={<CardListPage />} />
+            <Route path="/todas-las-cartas" element={<CardListPage />} />
 
         </Route>
 

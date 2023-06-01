@@ -11,8 +11,3 @@ const CreateCardPage = () => {
 }
 
 export default CreateCardPage
-
-
-
-
-

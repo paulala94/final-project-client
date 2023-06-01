@@ -25,6 +25,10 @@ class CardService {
         return this.api.post('/createCard', cardData)
     }
 
+    getCards(cardData) {
+        return this.api.get('/getAllCards', cardData)
+    }
+
 
 }
 

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
 
 body {
-  font-family: 'Comic Neue';
+  font-family: 'Comic Neue', cursive;
 }
 
 .App {

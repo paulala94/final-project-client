@@ -21,7 +21,7 @@ const EditProfileForm = () => {
 
     useEffect(() => {
         getUser(_id)
-    }, [_id,])
+    }, [_id])
 
     const handleInputChange = e => {
         const { value, name } = e.target
@@ -29,7 +29,7 @@ const EditProfileForm = () => {
     }
 
     const getUser = () => {
-        
+
         userService
             .getUser(_id)
             .then(({ data }) => setEditData(data))

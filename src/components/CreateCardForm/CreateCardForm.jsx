@@ -23,6 +23,7 @@ const CreateCardForm = () => {
     };
 
     return (
+        // TODO OPCIONAL: DINAMIZAR CREACIÓN PARALELA DE CARTAS
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
                 {/* <Form.Label>Nombre</Form.Label> */}
@@ -35,6 +36,7 @@ const CreateCardForm = () => {
             </Form.Group>
 
             <Form.Select className="mb-3" name="genre" defaultValue={"Elige un género"} onChange={handleInputChange}>
+                {/* TODO OPCIONAL: CREAR COLECCION GENRES EN BACKEND */}
                 <option disabled>Elige un género</option>
                 <option value="Cine">Cine</option>
                 <option value="TV">TV</option>

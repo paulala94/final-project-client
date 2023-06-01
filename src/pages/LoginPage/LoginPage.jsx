@@ -24,4 +24,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginForm
+export default LoginPage

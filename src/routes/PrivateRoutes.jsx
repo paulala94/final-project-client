@@ -1,9 +1,8 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { AuthContext } from "./../contexts/auth.context"
 import { Navigate, Outlet } from 'react-router-dom'
-// import Loader from "../components/Loader/Loader"
 
-const PrivateRoute = () => {
+const PrivateRoute = ({ admittedRoles }) => {
 
     const { user, isLoading } = useContext(AuthContext)
 

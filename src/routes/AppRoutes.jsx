@@ -8,8 +8,6 @@ import CreateCardPage from '../pages/CreateCardPage/CreateCardPage'
 import CardListPage from '../pages/CardList/CardList'
 import PrivateRoute from './PrivateRoutes'
 
-
-
 const AppRoutes = () => {
 
     return (
@@ -18,14 +16,15 @@ const AppRoutes = () => {
             <Route path="/registro" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
 
-        <Route element={<PrivateRoute />}>
+            <Route element={<PrivateRoute admittedRoles={['ADMIN', 'USER']} />}>
+                <Route path="/perfil" element={<ProfilePage />} />
+                <Route path="/editar-perfil/:_id" element={<EditProfilePage />} />
+                <Route path="/crear-cartas" element={<CreateCardPage />} />
+            </Route>
 
-            <Route path="/perfil" element={<ProfilePage />} />
-            <Route path="/editar-perfil/:_id" element={<EditProfilePage />} />
-            <Route path="/crear-cartas" element={<CreateCardPage />} />
-            <Route path="/todas-las-cartas" element={<CardListPage />} />
-
-        </Route>
+            <Route element={<PrivateRoute admittedRoles={['ADMIN']} />}>
+                <Route path="/todas-las-cartas" element={<CardListPage />} />
+            </Route>
 
         </Routes>
     )

@@ -34,15 +34,6 @@ class UserService {
         return this.api.delete(`/delete/${_id}`)
     }
 
- 
-    // login(userData) {
-    //     return this.api.post('/login', userData)
-    // }
-
-
-    // verify(token) {
-    //     return this.api.get('/verify', { headers: { Authorization: `Bearer ${token}` } })
-    // }
 }
 
 const userService = new UserService()

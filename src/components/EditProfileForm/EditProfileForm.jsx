@@ -21,12 +21,7 @@ const EditProfileForm = () => {
 
     useEffect(() => {
         getUser(_id)
-    }, [_id,])
-
-    const handleInputChange = e => {
-        const { value, name } = e.target
-        setEditData({ ...editData, [name]: value })
-    }
+    }, [_id])
 
     const getUser = () => {
         
@@ -36,13 +31,18 @@ const EditProfileForm = () => {
             .catch(err => console.log(err))
     }
 
+    const handleInputChange = e => {
+        const { value, name } = e.target
+        setEditData({ ...editData, [name]: value })
+    }
+
     const handleSubmit = e => {
 
         e.preventDefault()
 
         userService
             .edit(_id, editData)
-            .then(({ data }) => navigate('/perfil'))
+            .then(() => navigate('/perfil'))
             .catch(err => console.log(err))
     }
 
@@ -93,7 +93,6 @@ const EditProfileForm = () => {
             <div className="d-grid">
             </div>
             <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Editar'}</Button>
-
 
         </Form>
     )

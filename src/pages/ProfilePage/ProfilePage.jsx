@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react'
-// import { useParams } from "react-router-dom"
 import { AuthContext } from './../../contexts/auth.context'
 import { Link } from 'react-router-dom'
 import userService from '../../services/userService'
@@ -18,7 +17,7 @@ const ProfilePage = () => {
     
     const getUser = () => {
         userService
-        .getUser(user._id)
+            .getUser(user._id)
             .then(({ data }) => setProfileUser(data))
             .catch(err => console.log(err))
     }

@@ -29,6 +29,9 @@ const Navigation = () => {
             <Link to="/crear-cartas">Crear cartas</Link>
           </Nav.Link>
 
+<Nav.Link as='span'>
+            <Link to="/todas-las-cartas">Todas las cartas</Link>
+          </Nav.Link>
           {
             user
               ?

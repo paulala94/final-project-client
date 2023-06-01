@@ -22,7 +22,7 @@ const CardListPage = () => {
     return (
         <Container>
 
-            <h1>Tus cartas</h1>
+            <h1>Todas cartas</h1>
 
             {
                 <Button size="sm" variant="dark">

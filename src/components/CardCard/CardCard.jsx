@@ -9,10 +9,11 @@ import cardService from "../../services/cardService"
 const CardCard = ({ name, description, genre,  owner, _id }) => {
 
     return (
-        <Card className="mb-3 CoasterCard">
+        <Card className="mb-3 CardCard">
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
+                {/* TODO: populate */}
                 <Card.Text>Creada por: {owner}</Card.Text>
 
                 <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>

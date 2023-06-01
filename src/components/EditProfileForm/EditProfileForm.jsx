@@ -24,7 +24,7 @@ const EditProfileForm = () => {
     }, [_id])
 
     const getUser = () => {
-        
+
         userService
             .getUser(_id)
             .then(({ data }) => setEditData(data))

@@ -28,6 +28,9 @@ const Navigation = () => {
           <Nav.Link as='span'>
             <Link to="/crear-cartas">Crear cartas</Link>
           </Nav.Link>
+          <Nav.Link as='span'>
+            <Link to="/crear-mazos">Crear mazos</Link>
+          </Nav.Link>
 
 <Nav.Link as='span'>
             <Link to="/todas-las-cartas">Todas las cartas</Link>

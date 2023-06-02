@@ -30,7 +30,7 @@ const AppRoutes = () => {
                 <Route path="/editar-carta/:_id" element={<EditCardPage />} />
                 <Route path="/crear-cartas" element={<CreateCardPage />} />
                 <Route path="/crear-mazos" element={<CreateDeckPage />} />
-                <Route path="/crear-mazos" element={<DeckDetailsPage />} />
+                <Route path="/tus-mazos/:_id" element={<DeckDetailsPage />} />
                 <Route path="/editar-mazo/:_id" element={<EditDeckPage />} />
 
 

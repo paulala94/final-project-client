@@ -1,10 +1,10 @@
 import { Col } from "react-bootstrap"
 import DeckCard from "../DeckCard/DeckCard"
 
-const DeckList = ({ deck }) => {
+const DeckList = ({ decks }) => {
 
     return (
-        deck.map(elm => {
+        decks?.map(elm => {
             return (
                 <Col md={{ span: 4 }} key={elm._id}>
                     <DeckCard {...elm} />

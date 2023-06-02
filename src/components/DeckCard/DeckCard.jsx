@@ -12,7 +12,7 @@ const DeckCard = ({ name, description, owner, _id }) => {
 
     useEffect(() => {
         getDeck()
-    }, _id)
+    }, [_id])
 
     const getDeck = () => {
         deckService

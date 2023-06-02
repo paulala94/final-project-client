@@ -32,9 +32,10 @@ const ProfilePage = () => {
     return (
         <div>
             <h1>Perfil de {profileUser.username}</h1>
-            <img src={profileUser.image} alt="profile" />
+            <img style={{width:100}} src={profileUser.image} alt="profile" />
             <hr />
-
+            <Link to={`/tus-mazos/${profileUser._id}`}>Ver tus mazos</Link>
+            <hr />
             <Link to={`/editar-perfil/${profileUser._id}`}>Editar perfil</Link>
             <hr />
             <Link as='span' className='pointer' onClick={handleDelete}>Eliminar usuario</Link>

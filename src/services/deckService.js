@@ -32,6 +32,10 @@ class DeckService {
     getDeckInfo(_id, deckData) {
         return this.api.get(`/getDeckInfo/${_id}`, deckData)
     }
+
+    getOwnerDecks(_id, deckData) {
+        return this.api.get(`/getOwnerDecks/${_id}`, deckData)
+    }
     
     editDeck(_id, deckData) {
         return this.api.put(`/editDeck/${_id}`, deckData)

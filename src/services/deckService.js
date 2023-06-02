@@ -36,7 +36,10 @@ class DeckService {
     editDeck(_id, deckData) {
         return this.api.put(`/editDeck/${_id}`, deckData)
     }
-
+    
+    deleteDeck(_id, deckData) {
+        return this.api.delete(`/deleteDeck/${_id}`, deckData)
+    }
 }
 
 const deckService = new DeckService()

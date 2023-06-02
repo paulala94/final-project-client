@@ -11,7 +11,7 @@ const EditCardForm = () => {
 
     const { _id } = useParams()
 
-    const [ cardData, setCardData ] = useState({
+    const [cardData, setCardData] = useState({
         name: '',
         genre: '',
         description: ''
@@ -20,12 +20,12 @@ const EditCardForm = () => {
     useEffect(() => {
         getCard()
     }, [_id])
-    
+
     const getCard = () => {
 
         cardService
             .getCardInfo(_id)
-            .then(({data}) => setCardData(data))
+            .then(({ data }) => setCardData(data))
             .catch(err => console.log(err))
     }
 
@@ -43,7 +43,6 @@ const EditCardForm = () => {
     const handleInputChange = e => {
         const { value, name } = e.target
         setCardData({ ...cardData, [name]: value })
-        console.log(cardData)
     }
 
     const { name, genre, description, owner } = cardData

@@ -1,8 +1,9 @@
 import { Card } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 // import './CardCard.css'
 
-const DeckCard = ({ name, description, owner }) => {
+const DeckCard = ({ name, description, owner, _id }) => {
 
     return (
         <Card className="mb-3 DeckCard">
@@ -11,6 +12,7 @@ const DeckCard = ({ name, description, owner }) => {
                 <Card.Text>{description}</Card.Text>
                 {/* TODO: populate */}
                 <Card.Text>Creado por: {owner}</Card.Text>
+                <Link to={`/editar-mazo/${_id}`}>Editar mazo</Link>
             </Card.Body>
         </Card>
     )

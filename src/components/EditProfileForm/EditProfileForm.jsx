@@ -7,7 +7,7 @@ import uploadServices from "../../services/uploadService.js"
 
 const EditProfileForm = () => {
 
-    const [editData, setEditData] = useState({
+    const [userData, setUserData] = useState({
         username: '',
         email: '',
         password: '',
@@ -27,13 +27,13 @@ const EditProfileForm = () => {
 
         userService
             .getUser(_id)
-            .then(({ data }) => setEditData(data))
+            .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }
 
     const handleInputChange = e => {
         const { value, name } = e.target
-        setEditData({ ...editData, [name]: value })
+        setUserData({ ...userData, [name]: value })
     }
 
     const handleSubmit = e => {
@@ -41,7 +41,7 @@ const EditProfileForm = () => {
         e.preventDefault()
 
         userService
-            .edit(_id, editData)
+            .edit(_id, userData)
             .then(() => navigate('/perfil'))
             .catch(err => console.log(err))
     }
@@ -58,7 +58,7 @@ const EditProfileForm = () => {
         uploadServices
             .uploadImage(formData)
             .then(res => {
-                setEditData({ ...editData, image: res.data.cloudinary_url })
+                setUserData({ ...userData, image: res.data.cloudinary_url })
                 setLoadingImage(false)
             })
             .catch(err => {
@@ -67,7 +67,7 @@ const EditProfileForm = () => {
             })
     }
 
-    const { username, image, description } = editData
+    const { username, image, description } = userData
 
 
 

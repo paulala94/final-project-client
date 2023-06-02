@@ -29,8 +29,8 @@ class CardService {
         return this.api.get('/getAllCards', cardData)
     }
 
-    editCard(cardData) {
-        return this.api.put('/editCard', cardData)
+    editCard(_id, cardData) {
+        return this.api.put(`/editCard/${_id}`, cardData)
     }
 
 

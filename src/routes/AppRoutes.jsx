@@ -9,6 +9,7 @@ import EditCardPage from '../pages/EditCardPage/EditCardPage'
 import CreateDeckPage from '../pages/CreateDeckPage/CreateDeckPage'
 import CardListPage from '../pages/CardListPage/CardListPage'
 import DeckListPage from '../pages/DeckListPage/DeckListPage'
+import EditDeckPage from '../pages/EditDeckPage/EditDeckPage'
 import PrivateRoute from './PrivateRoutes'
 
 const AppRoutes = () => {
@@ -20,11 +21,12 @@ const AppRoutes = () => {
             <Route path="/login" element={<LoginPage />} />
 
             {/* TODO: hacer lo de las rutas de admin */}
-            <Route element={<PrivateRoute admittedRoles={['ADMIN', 'USER']} />}>
+            <Route path='' element={<PrivateRoute admittedRoles={['ADMIN', 'USER']} />}>
                 <Route path="/perfil" element={<ProfilePage />} />
                 <Route path="/editar-perfil/:_id" element={<EditProfilePage />} />
-                <Route path="/crear-cartas" element={<CreateCardPage />} />.
+                <Route path="/crear-cartas" element={<CreateCardPage />} />
                 <Route path="/editar-carta/:_id" element={<EditCardPage />} />
+                <Route path="/editar-mazo/:_id" element={<EditDeckPage />} />
                 <Route path="/crear-cartas" element={<CreateCardPage />} />
                 <Route path="/crear-mazos" element={<CreateDeckPage />} />
 

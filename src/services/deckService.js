@@ -25,10 +25,17 @@ class DeckService {
         return this.api.post('/createDeck', deckData)
     }
 
-    getDecks(deckData) {
+    getAllDecks(deckData) {
         return this.api.get('/getAllDecks', deckData)
     }
-
+    
+    getDeckInfo(_id, deckData) {
+        return this.api.get(`/getDeckInfo/${_id}`, deckData)
+    }
+    
+    editDeck(_id, deckData) {
+        return this.api.put(`/editDeck/${_id}`, deckData)
+    }
 
 }
 

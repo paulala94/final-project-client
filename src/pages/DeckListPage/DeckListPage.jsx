@@ -14,7 +14,7 @@ const DeckListPage = () => {
 
     const loadDecks = () => {
         deckService
-            .getDecks()
+            .getAllDecks()
             .then(({ data }) => setDeck(data))
             .catch(err => console.log(err))
     }
@@ -22,7 +22,7 @@ const DeckListPage = () => {
     return (
         <Container>
 
-            <h1>Todas los mazos</h1>
+            <h1>Todos los mazos</h1>
 
             {
                 <Button size="sm" variant="dark">

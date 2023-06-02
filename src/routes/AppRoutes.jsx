@@ -10,6 +10,8 @@ import CreateDeckPage from '../pages/CreateDeckPage/CreateDeckPage'
 import CardListPage from '../pages/CardListPage/CardListPage'
 import DeckListPage from '../pages/DeckListPage/DeckListPage'
 import EditDeckPage from '../pages/EditDeckPage/EditDeckPage'
+import DeckDetailsPage from '../pages/DeckDetailsPage/DeckDetailsPage'
+
 import PrivateRoute from './PrivateRoutes'
 
 const AppRoutes = () => {
@@ -29,6 +31,7 @@ const AppRoutes = () => {
                 <Route path="/editar-mazo/:_id" element={<EditDeckPage />} />
                 <Route path="/crear-cartas" element={<CreateCardPage />} />
                 <Route path="/crear-mazos" element={<CreateDeckPage />} />
+                <Route path="/crear-mazos" element={<DeckDetailsPage />} />
 
             </Route>
 

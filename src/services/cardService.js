@@ -25,12 +25,20 @@ class CardService {
         return this.api.post('/createCard', cardData)
     }
 
-    getCards(cardData) {
+    getAllCards(cardData) {
         return this.api.get('/getAllCards', cardData)
     }
 
-    editCard(cardData) {
-        return this.api.put('/editCard', cardData)
+    getCardInfo(_id, cardData) {
+        return this.api.get(`/getCardInfo/${_id}`, cardData)
+    }
+
+    editCard(_id, cardData) {
+        return this.api.put(`/editCard/${_id}`, cardData)
+    }
+
+    deleteCard(_id, cardData) {
+        return this.api.delete(`/deleteCard/${_id}`, cardData)
     }
 
 

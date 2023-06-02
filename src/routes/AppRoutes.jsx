@@ -33,7 +33,6 @@ const AppRoutes = () => {
             <Route element={<PrivateRoute admittedRoles={['ADMIN']} />}>
                 <Route path="/todas-las-cartas" element={<CardListPage />} />
                 <Route path="/todos-los-mazos" element={<DeckListPage />} />
-
             </Route>
 
         </Routes>

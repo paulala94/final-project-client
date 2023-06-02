@@ -9,23 +9,23 @@ const EditProfilePage = () => {
 
     const { _id } = useParams()
 
-    // const [ card, setCard ] = useState()
+    const [ card, setCard ] = useState()
 
-    // useEffect(() => {
-    //     getCard()
-    // }, [])
+    useEffect(() => {
+        getCard()
+    }, [])
 
-    // const getCard = () => {
+    const getCard = () => {
 
-    //     cardService
-    //         .getCards(_id)
-    //         .then(({ data }) => setCard(data))
-    //         .catch(err => console.log(err))
-    // }
+        cardService
+            .getAllCards(_id)
+            .then(({ data }) => setCard(data))
+            .catch(err => console.log(err))
+    }
 
     return (
         <div>
-            {/* <h1>{card}</h1> */}
+            <h1>Edita tu carta</h1>
 
             <EditCardForm />
         </div>

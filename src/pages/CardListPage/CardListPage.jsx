@@ -14,7 +14,7 @@ const CardListPage = () => {
 
     const loadCards = () => {
         cardService
-            .getCards()
+            .getAllCards()
             .then(({ data }) => setCards(data))
             .catch(err => console.log(err))
     }

@@ -17,31 +17,33 @@ const EditCardForm = () => {
         description: ''
     })
 
+    useEffect(() => {
+        getCard()
+    }, [_id])
+    
     const getCard = () => {
 
         cardService
-            .getCards(_id)
-            .then(({ data }) => setCardData(data))
+            .getCardInfo(_id)
+            .then(({data}) => setCardData(data))
             .catch(err => console.log(err))
     }
 
-    useEffect(() => {
-        getCard(_id)
-    }, [_id])
 
     const handleSubmit = e => {
 
         e.preventDefault()
 
         cardService
-            .edit(_id, cardData)
-            .then(() => navigate('/tus-cartas'))
+            .editCard(_id, cardData)
+            .then(() => navigate('/todas-las-cartas'))
             .catch(err => console.log(err))
     }
 
     const handleInputChange = e => {
         const { value, name } = e.target
         setCardData({ ...cardData, [name]: value })
+        console.log(cardData)
     }
 
     const { name, genre, description, owner } = cardData

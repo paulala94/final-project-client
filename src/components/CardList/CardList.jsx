@@ -1,5 +1,5 @@
 import { Col } from "react-bootstrap"
-import CardCard from "../CardCard/CardCard"
+import Card from "../Card/Card"
 
 const CardList = ({ cards }) => {
 
@@ -8,7 +8,7 @@ const CardList = ({ cards }) => {
         cards?.map(elm => {
             return (
                 <Col md={{ span: 4 }} key={elm._id}>
-                    <CardCard {...elm} />
+                    <Card {...elm} />
                 </Col>
             )
         })

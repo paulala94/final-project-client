@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Comic+Neue&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Comic+Neue&display=swap');
+
+:root {
+  --degradado: linear-gradient(to bottom right, #F77E21, #F75E66);
+}
+
 
 body {
-  font-family: 'Comic Neue', cursive;
-  /* font-family: 'Comfortaa', cursive; */
+  /* font-family: 'Comic Neue', cursive; */
+  font-family: 'Comfortaa', cursive;
 }
 
 .App {

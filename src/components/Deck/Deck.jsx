@@ -4,11 +4,13 @@ import { Link } from "react-router-dom"
 import deckService from "../../services/deckService"
 
 
-// import './CardCard.css'
+// import './Card.css'
 
 const DeckCard = ({ name, description, owner, _id }) => {
 
     const [deckToDelete, setDeckToDelete] = useState(true)
+
+    const [ownerData, setOwnerData] = useState(null)
 
     useEffect(() => {
         getDeck()
@@ -17,7 +19,10 @@ const DeckCard = ({ name, description, owner, _id }) => {
     const getDeck = () => {
         deckService
             .getDeckInfo(_id)
-            .then(({ data }) => setDeckToDelete(data))
+            .then(({ data }) => {
+                setDeckToDelete(data)
+                setOwnerData(data.owner)
+            })
             .catch(err => console.log(err))
     }
 
@@ -34,10 +39,16 @@ const DeckCard = ({ name, description, owner, _id }) => {
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
-                {/* TODO: populate */}
-                <Card.Text>Creado por: {owner}</Card.Text>
+                <Card.Text>
+                    Creado por: {ownerData && ownerData.length > 0 ? ownerData[0].username : ''}
+                </Card.Text>
                 <Link to={`/editar-mazo/${_id}`}>Editar mazo</Link>
+                <hr />
                 <Link as='span' className='pointer' onClick={handleDelete}>Eliminar mazo</Link>
+                <hr />
+
+                <Link to={`/mazo-detalles/${_id}`}>Ver detalles</Link>
+
             </Card.Body>
         </Card>
     )

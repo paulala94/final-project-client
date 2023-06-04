@@ -10,7 +10,8 @@ import CreateDeckPage from '../pages/CreateDeckPage/CreateDeckPage'
 import CardListPage from '../pages/CardListPage/CardListPage'
 import DeckListPage from '../pages/DeckListPage/DeckListPage'
 import EditDeckPage from '../pages/EditDeckPage/EditDeckPage'
-import DeckDetailsPage from '../pages/DeckDetailsPage/DeckDetailsPage'
+import UserDecksListPage from '../pages/UserDecksListPage/UserDecksListPage'
+import CardsInDecksPage from '../pages/CardsInDecksPage/CardsInDecksPage'
 
 import PrivateRoute from './PrivateRoutes'
 
@@ -29,8 +30,9 @@ const AppRoutes = () => {
                 <Route path="/crear-cartas" element={<CreateCardPage />} />
                 <Route path="/editar-carta/:_id" element={<EditCardPage />} />
                 <Route path="/crear-cartas" element={<CreateCardPage />} />
+                <Route path="/mazo-cartas" element={<CardsInDecksPage />} />
                 <Route path="/crear-mazos" element={<CreateDeckPage />} />
-                <Route path="/tus-mazos/:_id" element={<DeckDetailsPage />} />
+                <Route path="/tus-mazos/:_id" element={<UserDecksListPage />} />
                 <Route path="/editar-mazo/:_id" element={<EditDeckPage />} />
 
 
@@ -40,6 +42,10 @@ const AppRoutes = () => {
                 <Route path="/todas-las-cartas" element={<CardListPage />} />
                 <Route path="/todos-los-mazos" element={<DeckListPage />} />
             </Route>
+
+            {/* <Route element={<PrivateRoute admittedOwner />}>
+                <Route path="/tus-mazos/:_id" element={<DeckDetailsPage />} />
+            </Route> */}
 
         </Routes>
     )

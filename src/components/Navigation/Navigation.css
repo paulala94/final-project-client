@@ -1,3 +1,89 @@
-.pointer{
+.pointer {
     cursor: pointer;
+}
+
+.navbar {
+    padding-top: 20px;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.dropstart .dropdown-toggle::before {
+    display: none;
+}
+
+#dropdown-button-drop-start {
+    background-color: transparent;
+    border-color: #fff;
+    border-radius: 13px
+}
+
+#dropdown-button-drop-start:active {
+    background-color: white;
+    border-color: #f76459;
+}
+
+
+.nav-mobile {
+    display: none;
+}
+
+.nav-desktop {
+    display: none;
+}
+
+@media screen and (max-width: 425px) {
+    .nav-mobile {
+        display: block;
+    }
+
+    .nav-desktop {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 426px) {
+    .nav-mobile {
+        display: none;
+    }
+
+    .nav-desktop {
+        display: block;
+        margin-top: 40px;
+    }
+
+}
+
+.wavesMobile {
+    display: none;
+}
+
+.wavesDesktop {
+    display: none;
+}
+
+@media screen and (max-width: 425px) {
+    .wavesMobile {
+        display: block;
+    }
+
+    .wavesDesktop {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 426px) {
+    .wavesMobile {
+        display: none;
+    }
+
+    .wavesDesktop {
+        display: block;
+    }
+
 }

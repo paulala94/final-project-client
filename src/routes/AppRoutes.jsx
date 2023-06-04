@@ -11,7 +11,7 @@ import CardListPage from '../pages/CardListPage/CardListPage'
 import DeckListPage from '../pages/DeckListPage/DeckListPage'
 import EditDeckPage from '../pages/EditDeckPage/EditDeckPage'
 import DeckDetailsPage from '../pages/DeckDetailsPage/DeckDetailsPage'
-
+import GameRulesPage from '../pages/GameRulesPage/GameRules'
 import PrivateRoute from './PrivateRoutes'
 
 const AppRoutes = () => {
@@ -21,6 +21,7 @@ const AppRoutes = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/registro" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/como-jugar" element={<GameRulesPage />} />
 
             {/* TODO: hacer lo de las rutas de admin */}
             <Route path='' element={<PrivateRoute admittedRoles={['ADMIN', 'USER']} />}>

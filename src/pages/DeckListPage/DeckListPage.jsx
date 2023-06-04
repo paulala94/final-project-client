@@ -6,7 +6,7 @@ import DeckList from "../../components/DeckList/DeckList"
 
 const DeckListPage = () => {
 
-    const [deck, setDeck] = useState()
+    const [decks, setDecks] = useState()
 
     useEffect(() => {
         loadDecks()
@@ -15,7 +15,7 @@ const DeckListPage = () => {
     const loadDecks = () => {
         deckService
             .getAllDecks()
-            .then(({ data }) => setDeck(data))
+            .then(({ data }) => setDecks(data))
             .catch(err => console.log(err))
     }
 
@@ -33,11 +33,11 @@ const DeckListPage = () => {
             <hr />
             <Row>
                 {
-                    !deck
+                    !decks
                         ?
                         <p>Cargando...</p>
                         :
-                        <DeckList deck={deck} />
+                        <DeckList decks={decks} />
                 }
             </Row>
 

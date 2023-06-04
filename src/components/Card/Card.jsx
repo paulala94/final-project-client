@@ -3,9 +3,9 @@ import { Card } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import cardService from "../../services/cardService"
 
-// import './CardCard.css'
+// import './Card.css'
 
-const CardCard = ({ name, description, genre, owner, _id }) => {
+const CardComponent = ({ name, description, genre, owner, _id }) => {
 
     const [cardToDelete, setCardToDelete] = useState(true)
 
@@ -33,13 +33,12 @@ const CardCard = ({ name, description, genre, owner, _id }) => {
     }
 
     return (
-        <Card className="mb-3 CardCard">
+        <Card className="mb-3 Card">
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
                 {/* TODO: populate */}
                 {ownerData && (
-                    // <Card.Text>Creada por: {ownerData.username}</Card.Text>
                     <Card.Text>
                         Creada por: {ownerData && ownerData.length > 0 ? ownerData[0].username : ''}
                     </Card.Text>
@@ -52,4 +51,4 @@ const CardCard = ({ name, description, genre, owner, _id }) => {
     )
 }
 
-export default CardCard
+export default CardComponent

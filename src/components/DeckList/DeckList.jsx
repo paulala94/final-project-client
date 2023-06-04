@@ -1,5 +1,5 @@
 import { Col } from "react-bootstrap"
-import DeckCard from "../DeckCard/DeckCard"
+import Deck from "../Deck/Deck"
 
 const DeckList = ({ decks }) => {
 
@@ -7,7 +7,7 @@ const DeckList = ({ decks }) => {
         decks?.map(elm => {
             return (
                 <Col md={{ span: 4 }} key={elm._id}>
-                    <DeckCard {...elm} />
+                    <Deck {...elm} />
                 </Col>
             )
         })

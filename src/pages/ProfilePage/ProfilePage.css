@@ -1,0 +1,37 @@
+.deleteUser-btn {
+    background-color: #F75E66;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.tabs {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.profile-card img{
+    margin: 20px 0
+}
+
+.profile-card h1 {
+    margin: 30px 0
+}
+
+.edit-btn {
+    background-color: #F77E21;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.pink-bg {
+    background-color: #F75E66;
+    color: #F75E66;
+}
+
+.orange-bg {
+    background-color:#F77E21
+}

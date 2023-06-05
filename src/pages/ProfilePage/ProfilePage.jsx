@@ -3,11 +3,12 @@ import { useParams } from 'react-router-dom'
 import { AuthContext } from './../../contexts/auth.context'
 import { Link } from 'react-router-dom'
 import userService from '../../services/userService'
-import { Nav } from 'react-bootstrap'
+import { Tabs, Tab } from 'react-bootstrap'
 import DeckList from '../../components/DeckList/DeckList'
 import CardList from '../../components/CardList/CardList'
 import deckService from '../../services/deckService'
 import cardService from '../../services/cardService'
+import './ProfilePage.css'
 
 
 const ProfilePage = () => {
@@ -22,32 +23,24 @@ const ProfilePage = () => {
 
     const [userCards, setUserCards] = useState()
 
-    const [showDecks, setShowDecks] = useState(true)
+    const [key, setKey] = useState('Tus mazos')
 
-    const [showCards, setShowCards] = useState(false)
 
     const getDecks = () => {
 
         deckService
-            .getOwnerDecks(_id)
+            .getOwnerDecks(user._id)
             .then(({ data }) => {
                 setUserDecks(data)
+
             })
             .catch(err => console.log(err))
     }
 
-    useEffect(() => {
-        getDecks()
-    }, [_id])
-    
-    useEffect(() => {
-        getUser()
-    }, [user._id])
-
     const getCards = () => {
 
         cardService
-            .getOwnerCards(_id)
+            .getOwnerCards(user._id)
             .then(({ data }) => {
                 setUserCards(data)
             })
@@ -56,11 +49,23 @@ const ProfilePage = () => {
     
     const getUser = () => {
         userService
-            .getUser(user._id)
-            .then(({ data }) => setProfileUser(data))
-            .catch(err => console.log(err))
+        .getUser(user._id)
+        .then(({ data }) => setProfileUser(data))
+        .catch(err => console.log(err))
     }
     
+    useEffect(() => {
+        getDecks()
+    }, [_id])
+    
+     useEffect(() => {
+        getCards()
+    }, [_id])
+
+    useEffect(() => {
+        getUser()
+    }, [user._id])
+
     const handleDelete = e => {
         userService
             .deleteUser(user._id)
@@ -68,40 +73,48 @@ const ProfilePage = () => {
             .catch((err) => console.log(err))
     }
 
-
     return (
         <div>
-            <h1>Perfil de {profileUser.username}</h1>
-            <img style={{width:100}} src={profileUser.image} alt="profile" />
-            <hr />
-            <Link to={`/tus-mazos/${profileUser._id}`}>Ver tus mazos</Link>
-            <hr />
-            <Link to={`/tus-cartas/${profileUser._id}`}>Ver tus cartas</Link>
-            <hr />
-            <Link to={`/editar-perfil/${profileUser._id}`}>Editar perfil</Link>
-            <hr />
-            <Link as='span' className='pointer' onClick={handleDelete}>Eliminar usuario</Link>
+            <div className='profile-card'>
+                <img style={{width:100}} src={profileUser.image} alt="profile" />
+                <h1>Perfil de {profileUser.username}</h1>
+                {/* <Link to={`/tus-mazos/${profileUser._id}`}>Ver tus mazos</Link>
+                <hr />
+                <Link to={`/tus-cartas/${profileUser._id}`}>Ver tus cartas</Link>
+                <hr /> */}
+                <Link as='span' className='edit-btn' to={`/editar-perfil/${profileUser._id}`}>Editar perfil</Link>
+            </div>
 
+            <div className='tabs'>
+                <Tabs
+                    defaultActiveKey="profile"
+                    id="uncontrolled-tab-example"
+                    className="mb-3 d-flex justify-content-center"
+                    onSelect={(k) => setKey(k)}
+                    >
+                    <Tab eventKey="Tus mazos" title="Tus mazos" className='pink-bg'>
+                    </Tab>
+                    <Tab eventKey="Tus cartas" title="Tus cartas" className='orange-bg'>
+                    </Tab>
+                </Tabs>
 
-            {/* <Nav fill variant="tabs" defaultActiveKey="/home">
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1" onClick={() => { setShowDecks(true), setShowCards(false) }}>
-                        Tus mazos
-                    </Nav.Link>
-                    {showDecks ? <DeckList decks={userDecks} /> : null}
-                </Nav.Item>
+                {
+                    key === 'Tus mazos'
+                    ?
+                    <DeckList decks={userDecks} />
+                    :
+                    <CardList cards={userCards} />
+                }
+            </div>
 
-                <Nav.Item>
-                    <Nav.Link eventKey="link-2" onClick={() => { setShowDecks(false), setShowCards(true) }}>
-                        Tus cartas
-                    </Nav.Link>
-                    {showCards && <CardList cards={userCards} />}
-                </Nav.Item>
-            </Nav> */}
+            <div className='button'>
+                <Link as='span' className='pointer deleteUser-btn' onClick={handleDelete}>Eliminar usuario</Link>
+            </div>
+
 
         </div >
-        
     )
 }
-
+        
+    
 export default ProfilePage

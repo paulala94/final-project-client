@@ -54,7 +54,7 @@ const Navigation = () => {
             </div>
 
 
-            <div className="d-flex">
+            <div className="d-flex align-items-center">
               {
                 user
                   ?
@@ -77,7 +77,7 @@ const Navigation = () => {
                               <Link to={`/tus-mazos/${user._id}`}>Tus mazos</Link>
                             </Dropdown.Item>
                             <Dropdown.Item as='span' eventKey="6">
-                              <Link to="/tus-cartas">Tus cartas</Link>
+                              <Link to={`/tus-cartas/${user._id}`}>Tus cartas</Link>
                             </Dropdown.Item>
 
                             <Dropdown.Divider />
@@ -167,7 +167,15 @@ const Navigation = () => {
                               <>
 
                                 <Dropdown.Item as='span' eventKey="6">
-                                  <Link to="/perfil">{user.username}</Link>
+                                  <Link to="/perfil">Tu perfil</Link>
+                                </Dropdown.Item>
+                                
+                                <Dropdown.Item as='span' eventKey="6">
+                                  <Link to={`/tus-mazos/${user._id}`}>Tus mazos</Link>
+                                </Dropdown.Item>
+                                
+                                <Dropdown.Item as='span' eventKey="6">
+                                  <Link to={`/tus-cartas/${user._id}`}>Tus cartas</Link>
                                 </Dropdown.Item>
 
                                 <Dropdown.Divider />

@@ -79,7 +79,7 @@
     margin-left: 10px;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     .wavesMobile {
         display: block;
     }
@@ -90,7 +90,7 @@
 
 }
 
-@media screen and (min-width: 426px) {
+@media screen and (min-width: 769px) {
     .wavesMobile {
         display: none;
     }
@@ -101,7 +101,7 @@
 
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     .nav-mobile {
         display: block;
     }
@@ -112,14 +112,14 @@
 
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 769px) {
     .nav-mobile {
         display: none;
     }
 
     .nav-desktop {
         display: block;
-        margin-top: 30px;
+        margin-top: 10px;
     }
 
 

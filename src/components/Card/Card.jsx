@@ -38,7 +38,6 @@ const CardComponent = ({ name, description, genre, owner, _id }) => {
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
-                {/* TODO: populate */}
                 {ownerData && (
                     <Card.Text>
                         Creada por: {ownerData && ownerData.length > 0 ? ownerData[0].username : ''}
@@ -47,7 +46,7 @@ const CardComponent = ({ name, description, genre, owner, _id }) => {
 
                 <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
                 <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
-                <OwnerDeckDropdown />
+                <OwnerDeckDropdown card_id={_id} />
             </Card.Body>
         </Card>
     )

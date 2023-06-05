@@ -1,0 +1,43 @@
+.game-rules-container {
+    max-width: 70ch;
+}
+
+.game-rules-container p {
+    text-align: justify;
+}
+
+.game-rules-container p a {
+    color: #F75E66;
+}
+
+.game-rules-container p:last-child {
+    margin-bottom: 60px;
+}
+
+.numeros {
+    margin-bottom: 10px;
+}
+
+.game-title {
+    color: #F77E21;
+}
+
+.play-bt {
+    background-color: #F77E21;
+    border-radius: 5px;
+    padding: 20px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+@media screen and (min-width: 426px) {
+    .game-rules-container p {
+        text-align: start;
+    }
+
+
+
+}

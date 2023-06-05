@@ -10,7 +10,6 @@ import CreateDeckPage from '../pages/CreateDeckPage/CreateDeckPage'
 import CardListPage from '../pages/CardListPage/CardListPage'
 import DeckListPage from '../pages/DeckListPage/DeckListPage'
 import EditDeckPage from '../pages/EditDeckPage/EditDeckPage'
-// import DeckDetailsPage from '../pages/DeckDetailsPage/DeckDetailsPage'
 import GameRulesPage from '../pages/GameRulesPage/GameRules'
 import UserDecksListPage from '../pages/UserDecksListPage/UserDecksListPage'
 import CardsInDecksPage from '../pages/CardsInDecksPage/CardsInDecksPage'
@@ -26,7 +25,6 @@ const AppRoutes = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/como-jugar" element={<GameRulesPage />} />
 
-            {/* TODO: hacer lo de las rutas de admin */}
             <Route path='' element={<PrivateRoute admittedRoles={['ADMIN', 'USER']} />}>
                 <Route path="/perfil" element={<ProfilePage />} />
                 <Route path="/editar-perfil/:_id" element={<EditProfilePage />} />
@@ -37,8 +35,6 @@ const AppRoutes = () => {
                 <Route path="/crear-mazos" element={<CreateDeckPage />} />
                 <Route path="/tus-mazos/:_id" element={<UserDecksListPage />} />
                 <Route path="/editar-mazo/:_id" element={<EditDeckPage />} />
-
-
             </Route>
 
             <Route element={<PrivateRoute admittedRoles={['ADMIN']} />}>
@@ -46,9 +42,7 @@ const AppRoutes = () => {
                 <Route path="/todos-los-mazos" element={<DeckListPage />} />
             </Route>
 
-            {/* <Route element={<PrivateRoute admittedOwner />}>
-                <Route path="/tus-mazos/:_id" element={<DeckDetailsPage />} />
-            </Route> */}
+
 
         </Routes>
     )

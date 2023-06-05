@@ -6,6 +6,9 @@
   --degradado: linear-gradient(to bottom right, #F77E21, #F75E66);
 }
 
+#root {
+  overflow: hidden;
+}
 
 body {
   /* font-family: 'Comic Neue', cursive; */

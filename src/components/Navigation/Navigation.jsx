@@ -16,7 +16,7 @@ const Navigation = () => {
 
   return (
 
-  <>
+    <>
 
       <div className='wavesMobile'>
         <WavesMovile />
@@ -26,9 +26,68 @@ const Navigation = () => {
         <WavesDesktop />
       </div>
 
-      <Navbar bg="transparent" className='navbar navbar-expand-md nav-desktop'  expand='md'>
+      <Navbar bg="transparent" className='navbar navbar-expand-md nav-desktop' expand='md'>
+
+        <Container className="d-flex align-items-start justify-content-between full-width">
+          <div>
+            <Navbar.Brand >
+              <Link to="/">FINAL-PROJECT</Link>
+            </Navbar.Brand>
+          </div>
+
+
+          <Nav className="d-flex justify-content-between">
+            <div>
+              <Nav.Link as='span'>
+                <Link to="/como-jugar">Cómo jugar</Link>
+              </Nav.Link>
+            </div>
+
+
+            {/* <Nav.Link as='span'>
+                <Link to="/crear-cartas">Crear cartas</Link>
+              </Nav.Link>
+
+              <Nav.Link as='span'>
+                <Link to="/crear-mazos">Crear mazos</Link>
+              </Nav.Link>
+
+              <Nav.Link as='span'>
+                <Link to="/todas-las-cartas">Todas las cartas</Link>
+              </Nav.Link> */}
+
+            {
+              user
+                ?
+                <>
+                  <Nav.Link as='span'>
+                    <Link to="/perfil">{user.username}</Link>
+                  </Nav.Link>
+
+                  <Nav.Link as='span' className='pointer' onClick={logout}>Cerrar Sesión</Nav.Link>
+                </>
+                :
+                <>
+                  <Nav.Link as='span'>
+                    <Link to="/registro">Registro</Link>
+                  </Nav.Link>
+
+                  <Nav.Link as='span'>
+                    <Link to="/login">Login</Link>
+                  </Nav.Link>
+                </>
+            }
+
+          </Nav>
+
+        </Container>
+      </Navbar >
+
+
+      <Navbar bg="transparent" className='navbar  nav-mobile'  >
 
         <Container className="d-flex align-items-start justify-content-between">
+
           <div>
             <Navbar.Brand >
               <Link to="/">FINAL-PROJECT</Link>
@@ -36,66 +95,6 @@ const Navigation = () => {
           </div>
 
           <div>
-              <Nav className="me-auto">
-
-                <Nav.Link as='span'>
-                  <Link to="/juego">Juego</Link>
-                </Nav.Link>
-
-                <Nav.Link as='span'>
-                  <Link to="/crear-cartas">Crear cartas</Link>
-                </Nav.Link>
-
-                <Nav.Link as='span'>
-                  <Link to="/crear-mazos">Crear mazos</Link>
-                </Nav.Link>
-
-                <Nav.Link as='span'>
-                  <Link to="/todas-las-cartas">Todas las cartas</Link>
-                </Nav.Link>
-
-                {
-                  user
-                    ?
-                    <>
-                      <Nav.Link as='span'>
-                        <Link to="/perfil">{user.username}</Link>
-                      </Nav.Link>
-
-                      <Nav.Link as='span' className='pointer' onClick={logout}>Cerrar Sesión</Nav.Link>
-                    </>
-                    :
-                    <>
-                      <Nav.Link as='span'>
-                        <Link to="/registro">Registro</Link>
-                      </Nav.Link>
-
-                      <Nav.Link as='span'>
-                        <Link to="/login">Login</Link>
-                      </Nav.Link>
-                    </>
-                }
-
-              </Nav>
-
-            </div>
-
-        </Container>
-
-      </Navbar>
-
-
-      <Navbar bg="transparent" className='navbar  nav-mobile'  >
-
-      <Container className="d-flex align-items-start justify-content-between">
-
-        <div>
-          <Navbar.Brand >
-            <Link to="/">FINAL-PROJECT</Link>
-          </Navbar.Brand>
-        </div>
-
-        <div>
 
             <Nav className="me-auto">
 
@@ -115,7 +114,7 @@ const Navigation = () => {
                             className='navbar-bt' />}
                         >
                           <Dropdown.Item as='span' eventKey="1" >
-                            <Link to="/juego">Juego</Link>
+                            <Link to="/como-jugar">Cómo jugar</Link>
                           </Dropdown.Item>
 
                           <Dropdown.Item as='span' eventKey="2">
@@ -174,12 +173,12 @@ const Navigation = () => {
 
           </div>
 
-      </Container>
+        </Container>
 
-    </Navbar>
+      </Navbar>
 
-  </>
-  
+    </>
+
   )
 
 }

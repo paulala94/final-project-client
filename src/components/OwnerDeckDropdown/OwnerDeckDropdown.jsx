@@ -1,22 +1,22 @@
-import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import deckService from '../../services/deckService';
-import { Dropdown } from 'react-bootstrap';
-import { AuthContext } from '../../contexts/auth.context';
+import { useState, useEffect, useContext } from 'react'
+import { useParams } from 'react-router-dom'
+import deckService from '../../services/deckService'
+import { Dropdown } from 'react-bootstrap'
+import { AuthContext } from '../../contexts/auth.context'
 
 const OwnerDeckDropdown = () => {
-    const { user } = useContext(AuthContext);
-    const { _id } = user;
+    const { user } = useContext(AuthContext)
+    const { _id } = user
     const [showNameDeck, setShowNameDeck] = useState()
 
     const getDecks = () => {
         deckService
         .getOwnerDecks(_id)
         .then(response => {
-            setShowNameDeck(response.data);
+            setShowNameDeck(response.data)
         })
-        .catch(err => console.log(err));
-    };
+        .catch(err => console.log(err))
+    }
 
     return (
         <>
@@ -37,7 +37,7 @@ const OwnerDeckDropdown = () => {
             </Dropdown.Menu>
         </Dropdown>
         </>
-    );
-};
+    )
+}
 
-export default OwnerDeckDropdown;
+export default OwnerDeckDropdown

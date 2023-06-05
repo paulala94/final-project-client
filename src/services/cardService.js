@@ -33,6 +33,10 @@ class CardService {
         return this.api.get(`/getCardInfo/${_id}`, cardData)
     }
 
+    getOwnerCards(_id, cardData) {
+        return this.api.get(`getOwnerCards/${_id}`, cardData)
+    }
+
     editCard(_id, cardData) {
         return this.api.put(`/editCard/${_id}`, cardData)
     }

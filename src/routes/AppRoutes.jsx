@@ -16,6 +16,7 @@ import CardsInDecksPage from '../pages/CardsInDecksPage/CardsInDecksPage'
 import UserCardsListPage from '../pages/UserCardsListPage/UserCardsListPage'
 
 import PrivateRoute from './PrivateRoutes'
+import DeckDetailsPage from '../pages/DeckDetailsPage/DeckDetailsPage'
 
 const AppRoutes = () => {
 
@@ -36,6 +37,7 @@ const AppRoutes = () => {
                 <Route path="/mazo-cartas" element={<CardsInDecksPage />} />
                 <Route path="/crear-mazos" element={<CreateDeckPage />} />
                 <Route path="/tus-mazos/:_id" element={<UserDecksListPage />} />
+                <Route path="/mazo-detalles/:_id" element={<DeckDetailsPage />} />
                 <Route path="/editar-mazo/:_id" element={<EditDeckPage />} />
             </Route>
 

@@ -16,7 +16,7 @@ const ProfilePage = () => {
     const { user, logout } = useContext(AuthContext)
 
     const { _id } = useParams()
-    
+
     const [profileUser, setProfileUser] = useState(true)
 
     const [userDecks, setUserDecks] = useState()
@@ -37,6 +37,17 @@ const ProfilePage = () => {
             .catch(err => console.log(err))
     }
 
+<<<<<<< HEAD
+=======
+    useEffect(() => {
+        getDecks()
+    }, [_id])
+
+    useEffect(() => {
+        getUser()
+    }, [user._id])
+
+>>>>>>> 90a6cdcfcd4576564e483f594635920c2b9a2127
     const getCards = () => {
 
         cardService
@@ -46,13 +57,14 @@ const ProfilePage = () => {
             })
             .catch(err => console.log(err))
     }
-    
+
     const getUser = () => {
         userService
         .getUser(user._id)
         .then(({ data }) => setProfileUser(data))
         .catch(err => console.log(err))
     }
+<<<<<<< HEAD
     
     useEffect(() => {
         getDecks()
@@ -65,6 +77,8 @@ const ProfilePage = () => {
     useEffect(() => {
         getUser()
     }, [user._id])
+=======
+>>>>>>> 90a6cdcfcd4576564e483f594635920c2b9a2127
 
     const handleDelete = e => {
         userService
@@ -113,6 +127,10 @@ const ProfilePage = () => {
 
 
         </div >
+<<<<<<< HEAD
+=======
+
+>>>>>>> 90a6cdcfcd4576564e483f594635920c2b9a2127
     )
 }
         

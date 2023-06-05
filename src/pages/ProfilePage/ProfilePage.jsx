@@ -15,7 +15,7 @@ const ProfilePage = () => {
     const { user, logout } = useContext(AuthContext)
 
     const { _id } = useParams()
-    
+
     const [profileUser, setProfileUser] = useState(true)
 
     const [userDecks, setUserDecks] = useState()
@@ -39,7 +39,7 @@ const ProfilePage = () => {
     useEffect(() => {
         getDecks()
     }, [_id])
-    
+
     useEffect(() => {
         getUser()
     }, [user._id])
@@ -53,14 +53,14 @@ const ProfilePage = () => {
             })
             .catch(err => console.log(err))
     }
-    
+
     const getUser = () => {
         userService
             .getUser(user._id)
             .then(({ data }) => setProfileUser(data))
             .catch(err => console.log(err))
     }
-    
+
     const handleDelete = e => {
         userService
             .deleteUser(user._id)
@@ -72,7 +72,7 @@ const ProfilePage = () => {
     return (
         <div>
             <h1>Perfil de {profileUser.username}</h1>
-            <img style={{width:100}} src={profileUser.image} alt="profile" />
+            <img style={{ width: 100 }} src={profileUser.image} alt="profile" />
             <hr />
             <Link to={`/tus-mazos/${profileUser._id}`}>Ver tus mazos</Link>
             <hr />
@@ -100,7 +100,7 @@ const ProfilePage = () => {
             </Nav> */}
 
         </div >
-        
+
     )
 }
 

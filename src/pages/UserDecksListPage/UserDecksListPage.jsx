@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import deckService from '../../services/deckService'
 
 
-const DeckDetailsPage = () => {
+const UserDecksListPage = () => {
 
     const { _id } = useParams()
 
@@ -32,4 +32,4 @@ const DeckDetailsPage = () => {
     )
 }
 
-export default DeckDetailsPage
+export default UserDecksListPage

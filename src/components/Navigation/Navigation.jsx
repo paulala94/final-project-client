@@ -54,7 +54,7 @@ const Navigation = () => {
             </div>
 
 
-            <div className="d-flex">
+            <div className="d-flex align-items-center">
               {
                 user
                   ?

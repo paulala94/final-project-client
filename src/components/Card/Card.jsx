@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Card } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import cardService from "../../services/cardService"
+import OwnerDeckDropdown from "../OwnerDeckDropdown/OwnerDeckDropdown"
 
 // import './Card.css'
 
@@ -46,6 +47,7 @@ const CardComponent = ({ name, description, genre, owner, _id }) => {
 
                 <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
                 <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
+                <OwnerDeckDropdown />
             </Card.Body>
         </Card>
     )

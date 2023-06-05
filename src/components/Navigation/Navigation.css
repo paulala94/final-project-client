@@ -1,7 +1,10 @@
 .pointer {
     cursor: pointer;
 }
-
+.navbar a{
+    color: white;
+    text-decoration: none;
+}
 .navbar {
     padding-top: 20px;
     background: transparent;
@@ -26,6 +29,15 @@
     border-color: #f76459;
 }
 
+.dropdown-item.active{
+    background-color: #f76459;
+}
+.dropdown-item.active a{
+color: white;
+}
+.dropdown-item a{ 
+  color: black;
+}
 
 .nav-mobile {
     display: none;
@@ -46,14 +58,14 @@
 
 }
 
-@media screen and (min-width: 426px) {
+@media screen and (min-width: 425px) {
     .nav-mobile {
         display: none;
     }
 
     .nav-desktop {
         display: block;
-        margin-top: 40px;
+        margin-top: 30px;
     }
 
 }

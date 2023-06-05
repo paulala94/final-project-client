@@ -37,6 +37,11 @@ class CardService {
         return this.api.put(`/editCard/${_id}`, cardData)
     }
 
+    addCardToDeck(card_id, deck_id) {
+        return this.api.put(`/addCardToDeck`,{ card_id, deck_id})
+
+    }
+
     deleteCard(_id, cardData) {
         return this.api.delete(`/deleteCard/${_id}`, cardData)
     }

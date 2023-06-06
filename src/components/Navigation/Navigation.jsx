@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import WavesMovile from '../WavesMovile/WavesMovile'
 import WavesDesktop from '../WavesDesktop/WavesDesktop';
+import logo from '../../assets/img/logo.png'
 
 const Navigation = () => {
 
@@ -31,7 +32,8 @@ const Navigation = () => {
         <Container className="d-flex align-items-start justify-content-between ">
           <div>
             <Navbar.Brand >
-              <Link to="/">FINAL-PROJECT</Link>
+
+              <Link to="/"> <img src={logo} alt="SACABÓ logo" /></Link>
             </Navbar.Brand>
           </div>
 
@@ -118,7 +120,8 @@ const Navigation = () => {
 
           <div>
             <Navbar.Brand >
-              <Link to="/">FINAL-PROJECT</Link>
+
+              <Link to="/"> <img src={logo} alt="SACABÓ logo" className='logo' /></Link>
             </Navbar.Brand>
           </div>
 
@@ -169,11 +172,11 @@ const Navigation = () => {
                                 <Dropdown.Item as='span' eventKey="6">
                                   <Link to="/perfil">Tu perfil</Link>
                                 </Dropdown.Item>
-                                
+
                                 <Dropdown.Item as='span' eventKey="6">
                                   <Link to={`/tus-mazos/${user._id}`}>Tus mazos</Link>
                                 </Dropdown.Item>
-                                
+
                                 <Dropdown.Item as='span' eventKey="6">
                                   <Link to={`/tus-cartas/${user._id}`}>Tus cartas</Link>
                                 </Dropdown.Item>

@@ -57,16 +57,20 @@ const ProfilePage = () => {
 
     const getUser = () => {
         userService
-        .getUser(user._id)
-        .then(({ data }) => setProfileUser(data))
-        .catch(err => console.log(err))
+            .getUser(user._id)
+            .then(({ data }) => setProfileUser(data))
+            .catch(err => console.log(err))
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 32527615f8f72652ccab1fa71468de4f5e5d51a1
     useEffect(() => {
         getDecks()
     }, [_id])
-    
-     useEffect(() => {
+
+    useEffect(() => {
         getCards()
     }, [_id])
 
@@ -84,7 +88,7 @@ const ProfilePage = () => {
     return (
         <div>
             <div className='profile-card'>
-                <img style={{width:100}} src={profileUser.image} alt="profile" />
+                <img style={{ width: 100 }} src={profileUser.image} alt="profile" />
                 <h1>Perfil de {profileUser.username}</h1>
                 {/* <Link to={`/tus-mazos/${profileUser._id}`}>Ver tus mazos</Link>
                 <hr />
@@ -107,11 +111,11 @@ const ProfilePage = () => {
                 </Tabs>
 
                 {
-                    key === 'Tus-mazos'
-                    ?
-                    <DeckList decks={userDecks} />
-                    :
-                    <CardList cards={userCards} />
+                    key === 'Tus mazos'
+                        ?
+                        <DeckList decks={userDecks} />
+                        :
+                        <CardList cards={userCards} />
                 }
             </div>
 
@@ -123,6 +127,6 @@ const ProfilePage = () => {
         </div >
     )
 }
-        
-    
+
+
 export default ProfilePage

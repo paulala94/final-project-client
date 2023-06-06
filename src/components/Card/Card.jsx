@@ -46,7 +46,9 @@ const CardComponent = ({ name, description, genre, owner, _id }) => {
 
                 <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
                 <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
+
                 <OwnerDeckDropdown card_id={_id} />
+
             </Card.Body>
         </Card>
     )

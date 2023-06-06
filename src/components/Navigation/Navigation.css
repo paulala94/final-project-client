@@ -17,6 +17,13 @@
     margin-bottom: 60px;
 }
 
+.logo {
+    width: 15%;
+    display: block;
+    text-align: start;
+    margin-left: 2em;
+}
+
 .dropstart .dropdown-toggle::before {
     display: none;
 }

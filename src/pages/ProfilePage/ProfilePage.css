@@ -27,11 +27,15 @@
     color: white;
 }
 
-.pink-bg {
-    background-color: #F75E66;
-    color: #F75E66;
+#uncontrolled-tab-example-tab-Tus-mazos {
+    color:#ec2731;
+    border: solid 2px #F75E66;
+    border-bottom: none
 }
 
-.orange-bg {
-    background-color:#F77E21
+#uncontrolled-tab-example-tab-Tus-cartas {
+    color:#F77E21;
+    border: solid 2px #F77E21;
+    border-bottom: none
 }
+

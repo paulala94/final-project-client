@@ -37,8 +37,6 @@ const ProfilePage = () => {
             .catch(err => console.log(err))
     }
 
-<<<<<<< HEAD
-=======
     useEffect(() => {
         getDecks()
     }, [_id])
@@ -47,7 +45,6 @@ const ProfilePage = () => {
         getUser()
     }, [user._id])
 
->>>>>>> 90a6cdcfcd4576564e483f594635920c2b9a2127
     const getCards = () => {
 
         cardService
@@ -64,7 +61,6 @@ const ProfilePage = () => {
         .then(({ data }) => setProfileUser(data))
         .catch(err => console.log(err))
     }
-<<<<<<< HEAD
     
     useEffect(() => {
         getDecks()
@@ -77,8 +73,6 @@ const ProfilePage = () => {
     useEffect(() => {
         getUser()
     }, [user._id])
-=======
->>>>>>> 90a6cdcfcd4576564e483f594635920c2b9a2127
 
     const handleDelete = e => {
         userService
@@ -106,14 +100,14 @@ const ProfilePage = () => {
                     className="mb-3 d-flex justify-content-center"
                     onSelect={(k) => setKey(k)}
                     >
-                    <Tab eventKey="Tus mazos" title="Tus mazos" className='pink-bg'>
+                    <Tab eventKey="Tus-mazos" title="Tus mazos" className='pink-bg'>
                     </Tab>
-                    <Tab eventKey="Tus cartas" title="Tus cartas" className='orange-bg'>
+                    <Tab eventKey="Tus-cartas" title="Tus cartas" className='orange-bg'>
                     </Tab>
                 </Tabs>
 
                 {
-                    key === 'Tus mazos'
+                    key === 'Tus-mazos'
                     ?
                     <DeckList decks={userDecks} />
                     :
@@ -127,10 +121,6 @@ const ProfilePage = () => {
 
 
         </div >
-<<<<<<< HEAD
-=======
-
->>>>>>> 90a6cdcfcd4576564e483f594635920c2b9a2127
     )
 }
         

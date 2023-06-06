@@ -59,9 +59,6 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
                         Creada por: {ownerData && ownerData.length > 0 ? ownerData[0].username : ''}
                     </Card.Text>
                 )}
-
-                <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
-                <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
                 <>
                     {
                         !cards
@@ -72,10 +69,13 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
                                 ?
                                 <p>Aquí popeas</p>
                                 :
-                                <OwnerDeckDropdown card_id={_id} />
+                                <>
+                                    <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
+                                    <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
+                                    <OwnerDeckDropdown card_id={_id} />
+                                </>
                     }
                 </>
-
             </Card.Body>
         </Card>
     )

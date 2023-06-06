@@ -133,11 +133,11 @@ const Navigation = () => {
                           title={<FontAwesomeIcon icon={faBars} style={{ color: "#fff", }}
                             className='navbar-bt' />}
                         >
-                          {/* <Dropdown.Item as='span' eventKey="1" >
+                          <Dropdown.Item as='span' eventKey="1" >
                             <Link to="/como-jugar">Cómo jugar</Link>
                           </Dropdown.Item>
 
-                          <Dropdown.Item as='span' eventKey="2">
+                          {/*  <Dropdown.Item as='span' eventKey="2">
                             <Link to="/crear-cartas">Crear cartas</Link>
                           </Dropdown.Item>
 

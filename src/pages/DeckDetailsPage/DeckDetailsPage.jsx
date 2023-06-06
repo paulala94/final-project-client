@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import deckService from '../../services/deckService'
 import { Container, Col } from 'react-bootstrap'
-// import Card from '../../components/Card/Card'
-import CardComponent from '../../components/Card/Card'
+import CardComponent from '../../components/CardComponent/CardComponent'
 
 
 const DeckDetailsPage = () => {

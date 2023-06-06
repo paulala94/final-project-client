@@ -1,6 +1,5 @@
 import { Col } from "react-bootstrap"
-// import Card from "../Card/Card"
-import CardComponent from "../Card/Card"
+import CardComponent from "../CardComponent/CardComponent"
 
 const CardList = ({ cards }) => {
 

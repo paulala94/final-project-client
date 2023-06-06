@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.profile-card img{
+.profile-card img {
     margin: 20px 0
 }
 
@@ -28,14 +28,21 @@
 }
 
 #uncontrolled-tab-example-tab-Tus-mazos {
-    color:#ec2731;
+    color: black;
+}
+
+#uncontrolled-tab-example-tab-Tus-mazos.active {
+    color: #ec2731;
     border: solid 2px #F75E66;
     border-bottom: none
 }
 
 #uncontrolled-tab-example-tab-Tus-cartas {
-    color:#F77E21;
+    color: black;
+}
+
+#uncontrolled-tab-example-tab-Tus-cartas.active {
+    color: #F77E21;
     border: solid 2px #F77E21;
     border-bottom: none
 }
-

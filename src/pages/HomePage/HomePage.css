@@ -1,8 +1,24 @@
+.containerHP {
+    margin-top: 60px;
+}
+
 .play-btn {
     padding: 15px;
     color: white;
-    background-color: #F77E21;
     border-radius: 10px;
     text-decoration: none;
-    margin-bottom: 50px;
+    margin: 0 10px 50px 10px;
+}
+
+.pink {
+    background-color: #F75E66;
+}
+
+.orange {
+    background-color: #F77E21;
+}
+
+.logoHP img {
+    width: 50%;
+    margin: auto;
 }

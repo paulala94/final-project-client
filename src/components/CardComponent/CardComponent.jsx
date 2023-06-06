@@ -3,19 +3,20 @@ import { Card } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import cardService from "../../services/cardService"
 import OwnerDeckDropdown from "../OwnerDeckDropdown/OwnerDeckDropdown"
+import deckService from "../../services/deckService"
 
 // import './Card.css'
 
 const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
-
-    const cardIds = deck.cards?.map(elm => elm._id)
-    console.log(deck)
+    const cardIds = deck?.cards?.map(elm => elm._id)
 
     const [cardToDelete, setCardToDelete] = useState(true)
 
     const [ownerData, setOwnerData] = useState(null)
 
     const [cards, setCards] = useState()
+
+    const [decks, setDecks] = useState()
 
     useEffect(() => {
         loadCards()
@@ -25,6 +26,16 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
         cardService
             .getAllCards()
             .then(({ data }) => setCards(data))
+            .catch(err => console.log(err))
+    }
+    useEffect(() => {
+        loadDecks()
+    }, [])
+
+    const loadDecks = () => {
+        deckService
+            .getAllDecks()
+            .then(({ data }) => setDecks(data))
             .catch(err => console.log(err))
     }
 
@@ -61,16 +72,19 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
                 )}
                 <>
                     {
-                        !cards
+                        !cards && !decks
                             ?
                             <p>Cargando...</p>
                             :
-                            cardIds.includes(_id)
+
+                            cardIds?.includes(_id)
                                 ?
+
                                 <p>Aquí popeas</p>
                                 :
                                 <>
                                     <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
+
                                     <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
                                     <OwnerDeckDropdown card_id={_id} />
                                 </>

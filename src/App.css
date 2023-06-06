@@ -13,6 +13,7 @@
 body {
   /* font-family: 'Comic Neue', cursive; */
   font-family: 'Comfortaa', cursive;
+  max-width: 590px;
 }
 
 h1 {

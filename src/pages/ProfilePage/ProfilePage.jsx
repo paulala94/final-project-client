@@ -85,13 +85,13 @@ const ProfilePage = () => {
             <div className='profile-card'>
                 <img style={{ width: 100 }} src={profileUser.image} alt="profile" />
                 <h1>Perfil de {profileUser.username}</h1>
-                
+
                 <Link as='span' className='edit-btn' to={`/editar-perfil/${profileUser._id}`}>Editar perfil</Link>
             </div>
 
             <div className='tabs'>
                 <Tabs
-                    defaultActiveKey="profile"
+                    defaultActiveKey="Tus-cartas"
                     id="uncontrolled-tab-example"
                     className="mb-3 d-flex justify-content-center"
                     onSelect={(k) => setKey(k)}
@@ -104,10 +104,10 @@ const ProfilePage = () => {
 
                 {
                     key === 'Tus-mazos'
-                    ?
-                    <DeckList decks={userDecks} />
-                    :
-                    <CardList cards={userCards} />
+                        ?
+                        <DeckList decks={userDecks} />
+                        :
+                        <CardList cards={userCards} />
                 }
             </div>
 

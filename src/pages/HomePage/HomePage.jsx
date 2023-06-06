@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import logo from '../../assets/img/logo.png'
+import logo from '../../assets/img/logo-bi.svg'
 import './HomePage.css'
+import { Container } from 'react-bootstrap'
 
 
 
@@ -8,13 +9,21 @@ import './HomePage.css'
 const HomePage = () => {
 
     return (
-        <>
-        <img src={logo} alt="Logo Sacabó" />
+        <Container className='containerHP'>
 
-            <Link className='play-btn' to={'/juego'}>¡Comienza el juego!</Link>
-        
-        
-        </>
+            <div className='d-flex'>
+
+                <Link className='play-btn pink' to={'/juego'}>¡Comienza el juego!</Link>
+                <Link className='play-btn orange' to={'/como-jugar'}>¿Cómo se juega?</Link>
+
+            </div>
+            <div className="logoHP">
+
+                <img src={logo} alt="Logo Sacabó" />
+            </div>
+
+
+        </Container>
     )
 }
 

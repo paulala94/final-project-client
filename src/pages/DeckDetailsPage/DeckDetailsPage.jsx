@@ -35,7 +35,7 @@ const DeckDetailsPage = () => {
                     <h1>Detalles de {deck.name}</h1>
                     {cardDeck?.map(elm => (
                         <Col md={{ span: 4 }} key={elm._id}>
-                            <Card {...elm} />
+                            <Card decks={_id}{...elm} />
                         </Col>
                     ))}
 

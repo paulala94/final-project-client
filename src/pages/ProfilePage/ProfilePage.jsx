@@ -37,8 +37,6 @@ const ProfilePage = () => {
             .catch(err => console.log(err))
     }
 
-<<<<<<< HEAD
-=======
     useEffect(() => {
         getDecks()
     }, [_id])
@@ -47,7 +45,6 @@ const ProfilePage = () => {
         getUser()
     }, [user._id])
 
->>>>>>> 90a6cdcfcd4576564e483f594635920c2b9a2127
     const getCards = () => {
 
         cardService
@@ -60,25 +57,22 @@ const ProfilePage = () => {
 
     const getUser = () => {
         userService
-        .getUser(user._id)
-        .then(({ data }) => setProfileUser(data))
-        .catch(err => console.log(err))
+            .getUser(user._id)
+            .then(({ data }) => setProfileUser(data))
+            .catch(err => console.log(err))
     }
-<<<<<<< HEAD
-    
+
     useEffect(() => {
         getDecks()
     }, [_id])
-    
-     useEffect(() => {
+
+    useEffect(() => {
         getCards()
     }, [_id])
 
     useEffect(() => {
         getUser()
     }, [user._id])
-=======
->>>>>>> 90a6cdcfcd4576564e483f594635920c2b9a2127
 
     const handleDelete = e => {
         userService
@@ -90,7 +84,7 @@ const ProfilePage = () => {
     return (
         <div>
             <div className='profile-card'>
-                <img style={{width:100}} src={profileUser.image} alt="profile" />
+                <img style={{ width: 100 }} src={profileUser.image} alt="profile" />
                 <h1>Perfil de {profileUser.username}</h1>
                 {/* <Link to={`/tus-mazos/${profileUser._id}`}>Ver tus mazos</Link>
                 <hr />
@@ -105,7 +99,7 @@ const ProfilePage = () => {
                     id="uncontrolled-tab-example"
                     className="mb-3 d-flex justify-content-center"
                     onSelect={(k) => setKey(k)}
-                    >
+                >
                     <Tab eventKey="Tus mazos" title="Tus mazos" className='pink-bg'>
                     </Tab>
                     <Tab eventKey="Tus cartas" title="Tus cartas" className='orange-bg'>
@@ -114,10 +108,10 @@ const ProfilePage = () => {
 
                 {
                     key === 'Tus mazos'
-                    ?
-                    <DeckList decks={userDecks} />
-                    :
-                    <CardList cards={userCards} />
+                        ?
+                        <DeckList decks={userDecks} />
+                        :
+                        <CardList cards={userCards} />
                 }
             </div>
 
@@ -127,12 +121,8 @@ const ProfilePage = () => {
 
 
         </div >
-<<<<<<< HEAD
-=======
-
->>>>>>> 90a6cdcfcd4576564e483f594635920c2b9a2127
     )
 }
-        
-    
+
+
 export default ProfilePage

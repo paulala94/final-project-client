@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import HomePage from '../pages/HomePage/HomePage'
 import GamePage from '../pages/GamePage/GamePage'
 import SignupPage from '../pages/SignupPage/SignupPage.jsx'
 import LoginPage from '../pages/LoginPage/LoginPage.jsx'
@@ -22,7 +23,8 @@ const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<GamePage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/juego" element={<GamePage />} />
             <Route path="/registro" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/como-jugar" element={<GameRulesPage />} />

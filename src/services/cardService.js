@@ -42,8 +42,11 @@ class CardService {
     }
 
     addCardToDeck(card_id, deck_id) {
-        return this.api.put(`/addCardToDeck`,{ card_id, deck_id})
-
+        return this.api.put(`/addCardToDeck`, {card_id, deck_id})
+    }
+    
+    removeCardFromDeck(card_id, deck_id) {
+        return this.api.put('/removeCardFromDeck', {card_id, deck_id})
     }
 
     deleteCard(_id, cardData) {

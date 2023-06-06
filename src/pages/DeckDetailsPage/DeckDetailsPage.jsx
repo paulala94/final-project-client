@@ -18,10 +18,8 @@ const DeckDetailsPage = () => {
         deckService
             .getDeckInfo(_id)
             .then(({ data }) => {
-                console.log(cardDeck)
                 setDeck(data)
                 setCardDeck(data.cards)
-                console.log(data.cards)
             })
             .catch(err => console.log(err))
     }

@@ -23,7 +23,7 @@ const ProfilePage = () => {
 
     const [userCards, setUserCards] = useState()
 
-    const [key, setKey] = useState('Tus mazos')
+    const [key, setKey] = useState()
 
 
     const getDecks = () => {
@@ -96,9 +96,9 @@ const ProfilePage = () => {
                     className="mb-3 d-flex justify-content-center"
                     onSelect={(k) => setKey(k)}
                 >
-                    <Tab eventKey="Tus-mazos" title="Tus mazos" className='pink-bg'>
-                    </Tab>
                     <Tab eventKey="Tus-cartas" title="Tus cartas" className='orange-bg'>
+                    </Tab>
+                    <Tab eventKey="Tus-mazos" title="Tus mazos" className='pink-bg'>
                     </Tab>
                 </Tabs>
 

@@ -8,8 +8,7 @@ import OwnerDeckDropdown from "../OwnerDeckDropdown/OwnerDeckDropdown"
 
 const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
 
-    const cardIds = deck.cards?.map(elm => elm._id)
-    console.log(deck)
+    const cardIds = deck?.cards?.map(elm => elm._id)
 
     const [cardToDelete, setCardToDelete] = useState(true)
 
@@ -49,6 +48,20 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
             .catch((err) => console.log(err))
     }
 
+    const handleRemove = () => {
+      const deckId = deck?._id // Gets the deck ID from the deck prop
+
+      cardService
+        .removeCardFromDeck(_id, deckId) // Passes both card_id and deckId to the service function
+        .then(() => {
+          console.log(_id)
+          alert("carta sacada del mazo")
+          setCardToDelete(false)
+          setCards(cards.filter((card) => card._id !== _id))
+        })
+        .catch((err) => console.log(err))
+    }
+
     return (
         <Card className="mb-3 Card">
             <Card.Body>
@@ -65,9 +78,12 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
                             ?
                             <p>Cargando...</p>
                             :
-                            cardIds.includes(_id)
+                            cardIds?.includes(_id)
                                 ?
-                                <p>Aquí popeas</p>
+                                <>
+                                    <Link as='span' className='pointer' onClick={handleRemove}>Eliminar esta carta del mazo</Link>
+
+                                </>
                                 :
                                 <>
                                     <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>

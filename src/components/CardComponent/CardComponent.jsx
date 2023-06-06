@@ -8,10 +8,7 @@ import deckService from "../../services/deckService"
 // import './Card.css'
 
 const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
-<<<<<<< HEAD
 
-=======
->>>>>>> e46496a81145b68d72b7e4bd023714f94513fe4d
     const cardIds = deck?.cards?.map(elm => elm._id)
 
     const [cardToDelete, setCardToDelete] = useState(true)

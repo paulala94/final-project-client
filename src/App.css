@@ -6,14 +6,18 @@
   --degradado: linear-gradient(to bottom right, #F77E21, #F75E66);
 }
 
+/* ADD GERMAN */
 #root {
+  max-width: 600px;
   overflow: hidden;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid;
 }
 
 body {
   /* font-family: 'Comic Neue', cursive; */
   font-family: 'Comfortaa', cursive;
-  max-width: 590px;
 }
 
 h1 {

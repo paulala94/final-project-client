@@ -62,17 +62,17 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
     }
 
     const handleRemove = () => {
-      const deckId = deck?._id // Gets the deck ID from the deck prop
+        const deckId = deck?._id // Gets the deck ID from the deck prop
 
-      cardService
-        .removeCardFromDeck(_id, deckId) // Passes both card_id and deckId to the service function
-        .then(() => {
-          console.log(_id)
-          alert("carta sacada del mazo")
-          setCardToDelete(false)
-          setCards(cards.filter((card) => card._id !== _id))
-        })
-        .catch((err) => console.log(err))
+        cardService
+            .removeCardFromDeck(_id, deckId) // Passes both card_id and deckId to the service function
+            .then(() => {
+                console.log(_id)
+                alert("carta sacada del mazo")
+                setCardToDelete(false)
+                setCards(cards.filter((card) => card._id !== _id))
+            })
+            .catch((err) => console.log(err))
     }
 
     return (

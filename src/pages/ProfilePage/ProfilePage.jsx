@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { AuthContext } from './../../contexts/auth.context'
 import { Link } from 'react-router-dom'
 import userService from '../../services/userService'
-import { Tabs, Tab } from 'react-bootstrap'
+import { Tabs, Tab, Button } from 'react-bootstrap'
 import DeckList from '../../components/DeckList/DeckList'
 import CardList from '../../components/CardList/CardList'
 import deckService from '../../services/deckService'
@@ -105,9 +105,20 @@ const ProfilePage = () => {
                 {
                     key === 'Tus-mazos'
                         ?
-                        <DeckList decks={userDecks} />
+                        <>
+                            <Button variant="outline-success" className='me-2'>
+                                <Link to="/crear-mazos">Crear mazo</Link>
+                            </Button>
+                            <DeckList decks={userDecks} />
+                        </>
+
                         :
-                        <CardList cards={userCards} />
+                        <>
+                            <Button variant="outline-success" className='me-2'>
+                                <Link to="/crear-cartas">Crear carta</Link>
+                            </Button>
+                            <CardList cards={userCards} />
+                        </>
                 }
             </div>
 

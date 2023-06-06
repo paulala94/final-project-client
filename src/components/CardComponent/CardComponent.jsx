@@ -6,11 +6,16 @@ import OwnerDeckDropdown from "../OwnerDeckDropdown/OwnerDeckDropdown"
 
 // import './Card.css'
 
-const CardComponent = ({ name, description, genre, owner, _id }) => {
+const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
+
+    const cardIds = deck.cards?.map(elm => elm._id)
+    console.log(deck)
 
     const [cardToDelete, setCardToDelete] = useState(true)
 
     const [ownerData, setOwnerData] = useState(null)
+
+    const [cards, setCards] = useState()
 
     useEffect(() => {
         getCard()
@@ -26,6 +31,16 @@ const CardComponent = ({ name, description, genre, owner, _id }) => {
             .catch(err => console.log(err))
     }
 
+    useEffect(() => {
+        loadCards()
+    }, [])
+
+    const loadCards = () => {
+        cardService
+            .getAllCards()
+            .then(({ data }) => setCards(data))
+            .catch(err => console.log(err))
+    }
     const handleDelete = e => {
         cardService
             .deleteCard(_id)
@@ -43,12 +58,23 @@ const CardComponent = ({ name, description, genre, owner, _id }) => {
                         Creada por: {ownerData && ownerData.length > 0 ? ownerData[0].username : ''}
                     </Card.Text>
                 )}
-
-                <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
-                <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
-
-                <OwnerDeckDropdown card_id={_id} />
-
+                <>
+                    {
+                        !cards
+                            ?
+                            <p>Cargando...</p>
+                            :
+                            cardIds.includes(_id)
+                                ?
+                                <p>Aquí popeas</p>
+                                :
+                                <>
+                                    <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
+                                    <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
+                                    <OwnerDeckDropdown card_id={_id} />
+                                </>
+                    }
+                </>
             </Card.Body>
         </Card>
     )

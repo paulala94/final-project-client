@@ -1,6 +1,8 @@
 import { useContext, useState } from "react"
 import { AuthContext } from "./../contexts/auth.context"
 import { Link, Navigate, Outlet } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
+
 
 const PrivateRoute = ({ admittedRoles }) => {
 
@@ -16,10 +18,10 @@ const PrivateRoute = ({ admittedRoles }) => {
 
     if (!admittedRoles.includes(user.role)) {
         return (
-            <div className="container">
+            <Container>
                 <p>Usuario no autorizado</p>
                 <Link to="/">Volver al inicio</Link>
-            </div>
+            </Container>
         )
     }
 

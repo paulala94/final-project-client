@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { AuthContext } from './../../contexts/auth.context'
 import { Link } from 'react-router-dom'
 import userService from '../../services/userService'
-import { Tabs, Tab, Button } from 'react-bootstrap'
+import { Tabs, Tab, Button, Row } from 'react-bootstrap'
 import DeckList from '../../components/DeckList/DeckList'
 import CardList from '../../components/CardList/CardList'
 import deckService from '../../services/deckService'
@@ -101,7 +101,8 @@ const ProfilePage = () => {
                     <Tab eventKey="Tus-mazos" title="Tus mazos" className='pink-bg'>
                     </Tab>
                 </Tabs>
-
+                
+                <Row>
                 {
                     key === 'Tus-mazos'
                         ?
@@ -109,6 +110,7 @@ const ProfilePage = () => {
                             <Button variant="outline-success" className='me-2'>
                                 <Link to="/crear-mazos">Crear mazo</Link>
                             </Button>
+
                             <DeckList decks={userDecks} />
                         </>
 
@@ -117,9 +119,11 @@ const ProfilePage = () => {
                             <Button variant="outline-success" className='me-2'>
                                 <Link to="/crear-cartas">Crear carta</Link>
                             </Button>
+                            
                             <CardList cards={userCards} />
                         </>
                 }
+                </Row>
             </div>
 
             <div className='button'>

@@ -8,12 +8,27 @@ import GameSwipe from '../../components/GameSwipe/GameSwipe'
 
 const GamePage = () => {
 
+const [random, setRandom] = useState()
+
+const handleClick = e => {
+    gameService
+        .getRandomOGCard()
+        .then(({data}) => setRandom(data))
+        .catch(err => console.log(err))
+}
+
+    // useEffect(() => {
+    //     loadCards()
+    // }, [])
+
+
+
   return (
     <div>
-    <Button >Jugar con mazo original</Button>
+    <Button onClick={handleClick}>¡Empezar!</Button>
 
 
-    {/* <GameSwipe random={random}/> */}
+    <GameSwipe random={random}/>
 
 
     {/* {

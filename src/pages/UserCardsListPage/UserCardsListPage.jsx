@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import CardList from '../../components/CardList/CardList'
 import { useParams } from 'react-router-dom'
 import cardService from '../../services/cardService'
-import { Container } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 
 
 
@@ -29,7 +29,9 @@ const CardDetailsPage = () => {
     return (
         <Container>
             <h1>Tus putas cartas</h1>
-            <CardList cards={userCards} />
+            <Row>
+                <CardList cards={userCards} />
+            </Row>
         </Container>
     )
 }

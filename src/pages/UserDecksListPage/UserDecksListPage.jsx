@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import DeckList from '../../components/DeckList/DeckList'
 import { useParams } from 'react-router-dom'
 import deckService from '../../services/deckService'
-import { Container } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 
 
 
@@ -30,7 +30,9 @@ const UserDecksListPage = () => {
     return (
         <Container>
             <h1>Tus putos mazos</h1>
-            <DeckList decks={userDecks} />
+            <Row>
+                <DeckList decks={userDecks} />
+            </Row>
         </Container>
     )
 }

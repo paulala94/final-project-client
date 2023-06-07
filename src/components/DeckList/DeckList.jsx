@@ -1,4 +1,4 @@
-import { Col } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap"
 import Deck from "../Deck/Deck"
 
 const DeckList = ({ decks }) => {

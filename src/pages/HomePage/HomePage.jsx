@@ -11,7 +11,7 @@ const HomePage = () => {
     return (
         <Container className='containerHP'>
 
-            <div className='d-flex'>
+            <div className='d-flex justify-content-center'>
 
                 <Link className='play-btn pink' to={'/juego'}>¡Comienza el juego!</Link>
                 <Link className='play-btn orange' to={'/como-jugar'}>¿Cómo se juega?</Link>

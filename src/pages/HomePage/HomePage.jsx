@@ -14,14 +14,16 @@ const HomePage = () => {
             <div className='d-flex justify-content-center'>
 
                 <Link className='play-btn pink' to={'/juego'}>¡Comienza el juego!</Link>
-                <Link className='play-btn orange' to={'/como-jugar'}>¿Cómo se juega?</Link>
 
             </div>
             <div className="logoHP">
 
                 <img src={logo} alt="Logo Sacabó" />
             </div>
+            <div>
+                <Link className='play-btn orange' to={'/como-jugar'}>¿Cómo se juega?</Link>
 
+            </div>
 
         </Container>
     )

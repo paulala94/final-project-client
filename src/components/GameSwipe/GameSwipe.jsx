@@ -1,57 +1,71 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TinderCard from 'react-tinder-card'
+import './GameSwipe.css'
 
-const db = [
-    {
-        name: 'Richard Hendricks',
-        url: './img/richard.jpg'
-    },
-    {
-        name: 'Erlich Bachman',
-        url: './img/erlich.jpg'
-    },
-    {
-        name: 'Monica Hall',
-        url: './img/monica.jpg'
-    },
-    {
-        name: 'Jared Dunn',
-        url: './img/jared.jpg'
-    },
-    {
-        name: 'Dinesh Chugtai',
-        url: './img/dinesh.jpg'
-    }
-]
 
-function GameSwipe() {
-    const characters = db
+function GameSwipe({randomOG, setCounter, counter, setRandom}) {
+    
+   
+    const [randomOGCards, setrandomOGCards] = useState([])
+    useEffect(() =>{
+        setrandomOGCards(randomOG?.map(card =>({...card, guessed: false})) || [])
+    },[randomOG])
+
     const [lastDirection, setLastDirection] = useState()
+    const correctCards = []
 
-    const swiped = (direction, nameToDelete) => {
-        console.log('removing: ' + nameToDelete)
-        setLastDirection(direction)
+//     const swiped = (direction, cardName) => {
+        
+//         if(direction === 'right') {
+//             setCounter(counter+1)
+//             correctCards.push(cardName)
+//             setrandomOGCards(cards =>({
+
+// //aqui!!
+//             }))
+
+//         }
+//         console.log('removing: ' + cardName)
+//         setLastDirection(direction)
+//     }
+
+
+
+const swiped = (direction, cardName) => {
+    if (direction === 'right') {
+        setCounter(counter + 1);
+        const updatedCards = randomOGCards?.map(card => {
+            if (card.name === cardName) {
+                return { ...card, guessed: true };
+            }
+            return card;
+        });
+        setrandomOGCards(updatedCards);
     }
-
+    console.log('removing: ' + cardName);
+    setLastDirection(direction);
+};
     const outOfFrame = (name) => {
         console.log(name + ' left the screen!')
     }
 
+console.log({randomOGCards})
+
     return (
         <div>
-            <link href='https://fonts.googleapis.com/css?family=Damion&display=swap' rel='stylesheet' />
-            <link href='https://fonts.googleapis.com/css?family=Alatsi&display=swap' rel='stylesheet' />
-            <h1>React Tinder Card</h1>
             <div className='cardContainer'>
-                {characters.map((character) =>
-                    <TinderCard className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
-                        <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
-                            <h3>{character.name}</h3>
+                 
+            
+                {randomOGCards?.map((cards) =>
+                    <TinderCard className='swipe' key={cards.name} onSwipe={(dir) => swiped(dir, cards.name)} onCardLeftScreen={() => outOfFrame(cards.name)}>
+                        <div className='card'>
+                            <h3>{cards.name}</h3>
                         </div>
                     </TinderCard>
                 )}
+                
             </div>
-            {lastDirection ? <h2 className='infoText'>You swiped {lastDirection}</h2> : <h2 className='infoText' />}
+            {lastDirection === 'right' ? <h2 className='infoText'>Carta acertada</h2> : <h2 className='infoText' />}
         </div>
     )
 }

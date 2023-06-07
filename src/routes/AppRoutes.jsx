@@ -19,12 +19,15 @@ import UserCardsListPage from '../pages/UserCardsListPage/UserCardsListPage'
 import PrivateRoute from './PrivateRoutes'
 import DeckDetailsPage from '../pages/DeckDetailsPage/DeckDetailsPage'
 
+import GameOGDeckPage from '../pages/GameOGDeckPage/GameOGDeckPage'
+
 const AppRoutes = () => {
 
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/juego" element={<GamePage />} />
+            <Route path="/juego/mazo-original" element={<GameOGDeckPage />} />
             <Route path="/registro" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/como-jugar" element={<GameRulesPage />} />

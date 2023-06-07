@@ -1,32 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
-import gameService from '../../services/gameService'
-import GameCard from '../../components/GameCard/GameCard'
-import GameSwipe from '../../components/GameSwipe/GameSwipe'
-
-
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/auth.context'
 
 const GamePage = () => {
 
+const { user } = useContext(AuthContext)
+
   return (
     <div>
-    <Button >Jugar con mazo original</Button>
+      {
+        user
+        ?
+        // sus mazos
+        <Button variant="dark" className='me-2'>
+            <Link to='/juego/mazo-original'>Mazo original</Link>
+        </Button>
+        :
+        <Button variant="dark" className='me-2'>
+            <Link to='/juego/mazo-original'>Mazo original</Link>
+        </Button>
+      }
 
-
-    {/* <GameSwipe random={random}/> */}
-
-
-    {/* {
-        random?.map(elm => {
-            return(
-                <div key={elm._id}>
-                    <GameCard {...elm}/>
-                </div>
-            )
-        })
-    } */}
-
-    
     </div>
   )
 }

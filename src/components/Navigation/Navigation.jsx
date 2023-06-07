@@ -43,7 +43,7 @@ const Navigation = () => {
                 <>
 
                   <div className="mb-2" >
-                    {['start'].map(
+                    {['start']?.map(
                       (direction) => (
                         <DropdownButton
                           as={ButtonGroup}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Card } from "react-bootstrap"
+import { Card, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import deckService from "../../services/deckService"
-
+import './Deck.css'
 
 // import './Card.css'
 
@@ -35,19 +35,24 @@ const DeckCard = ({ name, description, owner, _id }) => {
     }
 
     return (
-        <Card className="mb-3 DeckCard">
+        <Card className="mb-3 DeckCard deck-bg">
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{description}</Card.Text>
                 <Card.Text>
                     Creado por: {ownerData && ownerData.length > 0 ? ownerData[0].username : ''}
                 </Card.Text>
-                <Link to={`/editar-mazo/${_id}`}>Editar mazo</Link>
-                <hr />
-                <Link as='span' className='pointer' onClick={handleDelete}>Eliminar mazo</Link>
-                <hr />
 
-                <Link to={`/mazo-detalles/${_id}`}>Ver detalles</Link>
+                <Button className="deck-bt">
+                    <Link to={`/mazo-detalles/${_id}`}>Ver detalles</Link>
+                </Button>
+                <Button className="deck-bt">
+                    <Link to={`/editar-mazo/${_id}`}>Editar mazo</Link>
+                </Button>
+
+                <Button className="deck-bt-delete">
+                    <Link as='span' className='pointer deck-bt-delete' onClick={handleDelete}>Eliminar mazo</Link>
+                </Button>
 
             </Card.Body>
         </Card>

@@ -6,7 +6,7 @@ const CardList = ({ cards }) => {
     return (
         cards?.map(elm => {
             return (
-                <Col md={{ span: 4 }} key={elm._id}>
+                <Col md={{ span: 6 }} key={elm._id}>
                     <CardComponent {...elm} />
                 </Col>
             )

@@ -10,7 +10,9 @@
 }
 
 .card {
-    position: relative;
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
     background-color: #ff6f6f;
     width: 80vw;
     max-width: 260px;
@@ -28,7 +30,7 @@
 }
 
 .card h3 {
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     margin: 10px;
     color: #fff;

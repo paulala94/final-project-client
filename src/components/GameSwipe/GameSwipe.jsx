@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import TinderCard from 'react-tinder-card'
 import './GameSwipe.css'
+import { Col, Row } from 'react-bootstrap'
 
 
-function GameSwipe({randomOG, setCounter, counter, setRandom}) {
-    
-   
+function GameSwipe({ randomOG, setCounter, counter, setRandom }) {
+
+
     const [randomOGCards, setrandomOGCards] = useState([])
     const [currentTeam, setCurrentTeam] = useState(1)
     const [timmerRunning, setTimerRunning] = useState(false)
@@ -51,7 +52,7 @@ const swiped = (direction, cardName) => {
         console.log(name + ' left the screen!')
     }
 
-console.log({randomOGCards})
+    console.log(correctCards)
 
     return (
         <div>

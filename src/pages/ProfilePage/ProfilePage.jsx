@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { AuthContext } from './../../contexts/auth.context'
 import { Link } from 'react-router-dom'
 import userService from '../../services/userService'
-import { Tabs, Tab, Button, Row } from 'react-bootstrap'
+import { Tabs, Tab, Button, Row, Col } from 'react-bootstrap'
 import DeckList from '../../components/DeckList/DeckList'
 import CardList from '../../components/CardList/CardList'
 import deckService from '../../services/deckService'
@@ -85,28 +85,27 @@ const ProfilePage = () => {
                     <Tab eventKey="Tus-mazos" title="Tus mazos" className='pink-bg'>
                     </Tab>
                 </Tabs>
-                
                 <Row>
-                {
-                    key === 'Tus-mazos'
-                        ?
-                        <>
-                            <Button variant="outline-success" className='me-2'>
-                                <Link to="/crear-mazos">Crear mazo</Link>
-                            </Button>
+                    {
+                        key === 'Tus-mazos'
+                            ?
+                            <>
+                                <Button variant="outline-success" className='me-2 deck-bt-delete'>
+                                    <Link to="/crear-mazos"><strong>CREAR MAZO</strong></Link>
+                                </Button>
 
-                            <DeckList decks={userDecks} />
-                        </>
+                                <DeckList decks={userDecks} />
+                            </>
 
-                        :
-                        <>
-                            <Button variant="outline-success" className='me-2'>
-                                <Link to="/crear-cartas">Crear carta</Link>
-                            </Button>
-                            
-                            <CardList cards={userCards} />
-                        </>
-                }
+                            :
+                            <>
+                                <Button className='me-2 card-bt-delete'>
+                                    <Link to="/crear-cartas"><strong>CREAR CARTA</strong></Link>
+                                </Button>
+
+                                <CardList cards={userCards} />
+                            </>
+                    }
                 </Row>
             </div>
 

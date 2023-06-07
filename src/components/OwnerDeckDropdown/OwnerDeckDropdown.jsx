@@ -30,8 +30,8 @@ const OwnerDeckDropdown = ({ card_id }) => {
 
     return (
         <>
-            <Dropdown onClick={getDecks}>
-                <Dropdown.Toggle variant="dark" id="dropdown-basic">
+            <Dropdown onClick={getDecks} >
+                <Dropdown.Toggle className='card-bt' id="dropdown-basic">
                     Añadir a mazo
                 </Dropdown.Toggle>
 

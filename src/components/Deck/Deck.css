@@ -1,0 +1,28 @@
+.deck-bg {
+    background-color: #F77E21;
+    color: white;
+}
+
+
+.deck-bt-delete {
+    background-color: rgb(255 111 111);
+    margin-bottom: 10px;
+    border: none;
+}
+
+.deck-bt-delete a {
+    color: white;
+    text-decoration: none;
+
+}
+
+.deck-bt {
+    background-color: white;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.deck-bt a {
+    color: #ff6f6f;
+    text-decoration: none;
+}

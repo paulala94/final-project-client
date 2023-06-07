@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import { Card } from "react-bootstrap"
+import { Card, Button, Row, Col } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import cardService from "../../services/cardService"
 import OwnerDeckDropdown from "../OwnerDeckDropdown/OwnerDeckDropdown"
 import deckService from "../../services/deckService"
 
-// import './Card.css'
+import './CardComponent.css'
 
 const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
 
@@ -62,10 +62,9 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
     }
 
     const handleRemove = () => {
-        const deckId = deck?._id // Gets the deck ID from the deck prop
-
+        const deckId = deck?._id
         cardService
-            .removeCardFromDeck(_id, deckId) // Passes both card_id and deckId to the service function
+            .removeCardFromDeck(_id, deckId)
             .then(() => {
                 console.log(_id)
                 alert("carta sacada del mazo")
@@ -78,7 +77,7 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
     return (
         <Card className="mb-3 Card">
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title><strong>{name}</strong></Card.Title>
                 <Card.Text>{description}</Card.Text>
                 {ownerData && (
                     <Card.Text>
@@ -95,14 +94,21 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
                                 ?
                                 <>
                                     <Link as='span' className='pointer' onClick={handleRemove}>Eliminar esta carta del mazo</Link>
-
                                 </>
                                 :
                                 <>
-                                    <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
+                                    <Button className="card-bt">
+                                        <Link to={`/editar-carta/${_id}`}>Editar Carta</Link>
+                                    </Button>
 
-                                    <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
                                     <OwnerDeckDropdown card_id={_id} />
+
+                                    <Button className="card-bt-delete">
+                                        <Link as='span' className='pointer' onClick={handleDelete}>Eliminar Carta</Link>
+                                    </Button>
+
+
+
                                 </>
                     }
                 </>

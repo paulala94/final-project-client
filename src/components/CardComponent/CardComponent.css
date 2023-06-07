@@ -1,0 +1,59 @@
+.Card {
+    color: white;
+}
+
+.card-bt {
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.card-bt a {
+    color: #f77f20;
+    text-decoration: none;
+
+}
+
+.card-bt,
+.dropdown-toggle,
+.btn,
+.btn-primary {
+    color: #f77f20;
+    text-decoration: none;
+}
+
+.card-bt:focus,
+.dropdown-toggle:focus,
+.btn:focus,
+.btn-primary:focus {
+    background-color: white;
+    text-decoration: none;
+    color: #f77f20;
+}
+
+.card-bt:active,
+.dropdown-toggle:active,
+.btn:active,
+.btn-primary:active {
+    background-color: #f77f20 !important;
+    text-decoration: none;
+    color: white !important;
+}
+
+.dropdown-item,
+.dropdown-menu.show {
+    background-color: #f77f20 !important;
+    color: white !important;
+}
+
+.card-bt-delete {
+    background-color: #f77f20;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.card-bt-delete a {
+    color: white;
+    text-decoration: none;
+
+}

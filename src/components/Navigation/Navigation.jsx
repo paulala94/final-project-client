@@ -57,22 +57,6 @@ const Navigation = () => {
                             <Link to="/como-jugar">Cómo jugar</Link>
                           </Dropdown.Item>
 
-                          {/*  <Dropdown.Item as='span' eventKey="2">
-                            <Link to="/crear-cartas">Crear cartas</Link>
-                          </Dropdown.Item>
-
-                          <Dropdown.Item as='span' eventKey="3" >
-                            <Link to="/crear-mazos">Crear mazos</Link>
-                          </Dropdown.Item>
-
-                          <Dropdown.Item as='span' eventKey="4">
-                            <Link to="/todos-los-mazos">Todos los mazos</Link>
-                          </Dropdown.Item>
-
-                          <Dropdown.Item as='span' eventKey="5">
-                            <Link to="/todas-las-cartas">Todas las cartas</Link>
-                          </Dropdown.Item> */}
-
                           {
                             user
                               ?

@@ -6,7 +6,7 @@ const DeckList = ({ decks }) => {
     return (
         decks?.map(elm => {
             return (
-                <Col md={{ span: 4 }} key={elm._id}>
+                <Col md={6} key={elm._id}>
                     <Deck {...elm} />
                 </Col>
             )

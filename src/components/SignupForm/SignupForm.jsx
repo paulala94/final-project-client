@@ -17,6 +17,10 @@ const SignupForm = () => {
         description: '',
     })
 
+    const [loadingImage, setLoadingImage] = useState(false)
+
+    const { username, password, email, description } = signupData
+
     const navigate = useNavigate()
 
     const handleInputChange = e => {
@@ -33,10 +37,7 @@ const SignupForm = () => {
             .catch(err => console.log(err))
     }
 
-    const [loadingImage, setLoadingImage] = useState(false)
-
     const handleFileUpload = e => {
-
         setLoadingImage(true)
 
         const formData = new FormData()
@@ -53,10 +54,6 @@ const SignupForm = () => {
                 setLoadingImage(false)
             })
     }
-
-
-
-    const { username, password, email, description } = signupData
 
     return (
 

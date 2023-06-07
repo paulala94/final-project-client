@@ -12,7 +12,6 @@ const { user } = useContext(AuthContext)
       {
         user
         ?
-        // sus mazos
         <Button variant="dark" className='me-2'>
             <Link to='/juego/mazo-original'>Mazo original</Link>
         </Button>

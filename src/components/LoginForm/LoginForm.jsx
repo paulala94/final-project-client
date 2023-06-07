@@ -13,6 +13,8 @@ const LoginForm = () => {
 
     const navigate = useNavigate()
 
+    const { password, email } = loginData
+
     const { authenticateUser, storeToken } = useContext(AuthContext)
 
     const handleInputChange = e => {
@@ -21,9 +23,7 @@ const LoginForm = () => {
     }
 
     const handleSubmit = e => {
-
         e.preventDefault()
-
         authService
             .login(loginData)
             .then(({ data }) => {
@@ -33,9 +33,6 @@ const LoginForm = () => {
             })
             .catch(err => console.log(err))
     }
-
-
-    const { password, email } = loginData
 
     return (
 

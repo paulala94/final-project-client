@@ -24,13 +24,12 @@ const CardListPage = () => {
 
             <h1>Todas las cartas</h1>
 
-            {
-                <Button size="sm" variant="dark">
-                    <Link to={'/crear-cartas'}>Crear nueva carta</Link>
-                </Button>
-            }
+            <Button size="sm" variant="dark">
+                <Link to={'/crear-cartas'}>Crear nueva carta</Link>
+            </Button>
 
             <hr />
+            
             <Row>
                 {
                     !cards

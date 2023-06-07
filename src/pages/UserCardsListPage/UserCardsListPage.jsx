@@ -13,7 +13,6 @@ const CardDetailsPage = () => {
     const [userCards, setUserCards] = useState()
 
     const getCards = () => {
-
         cardService
             .getOwnerCards(_id)
             .then(({ data }) => {

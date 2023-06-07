@@ -12,9 +12,7 @@ const OwnerDeckDropdown = ({ card_id }) => {
     const getDecks = () => {
         deckService
             .getOwnerDecks(_id)
-            .then(response => {
-                setShowNameDeck(response.data);
-            })
+            .then(response => setShowNameDeck(response.data))
             .catch(err => console.log(err));
     }
 
@@ -22,9 +20,7 @@ const OwnerDeckDropdown = ({ card_id }) => {
 
         cardService
             .addCardToDeck(card_id, deck_id)
-            .then(response => {
-                console.log(card_id);
-            })
+            .then(() => console.log(card_id))
             .catch(err => console.log(err));
     }
 
@@ -36,13 +32,11 @@ const OwnerDeckDropdown = ({ card_id }) => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu >
-
                     {
                         showNameDeck?.map((elem) => {
                             return <Dropdown.Item key={elem._id} onClick={() => addCardToDeck(elem._id)} >{elem.name}</Dropdown.Item>
                         })
                     }
-
                 </Dropdown.Menu>
             </Dropdown>
         </>

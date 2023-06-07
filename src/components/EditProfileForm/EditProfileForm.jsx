@@ -15,16 +15,19 @@ const EditProfileForm = () => {
         description: '',
     })
 
+    const [loadingImage, setLoadingImage] = useState(false)
+
     const navigate = useNavigate()
 
     const { _id } = useParams()
+    
+    const { username, image, description } = userData
 
     useEffect(() => {
         getUser(_id)
     }, [_id])
 
     const getUser = () => {
-
         userService
             .getUser(_id)
             .then(({ data }) => setUserData(data))
@@ -37,22 +40,19 @@ const EditProfileForm = () => {
     }
 
     const handleSubmit = e => {
-
         e.preventDefault()
-
         userService
             .edit(_id, userData)
             .then(() => navigate('/perfil'))
             .catch(err => console.log(err))
     }
 
-    const [loadingImage, setLoadingImage] = useState(false)
-
     const handleFileUpload = e => {
-
+        
         setLoadingImage(true)
 
         const formData = new FormData()
+        
         formData.append('image', e.target.files[0])
 
         uploadServices
@@ -66,10 +66,6 @@ const EditProfileForm = () => {
                 setLoadingImage(false)
             })
     }
-
-    const { username, image, description } = userData
-
-
 
     return (
 

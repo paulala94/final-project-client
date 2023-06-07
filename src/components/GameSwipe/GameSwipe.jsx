@@ -7,43 +7,45 @@ function GameSwipe({randomOG, setCounter, counter, setRandom}) {
     
    
     const [randomOGCards, setrandomOGCards] = useState([])
+    const [currentTeam, setCurrentTeam] = useState(1)
+    const [timmerRunning, setTimerRunning] = useState(false)
+
+    const [timeCounter, setTimeCounter] = useState(30)
+
+
+    useEffect(() => {
+        if(timeCounter <= 0){
+            setTimerRunning(false)
+            setTimeCounter(30)
+            currentTeam === 1 ? setCurrentTeam(2) : setCurrentTeam(1) 
+            return
+        }
+
+        if(timmerRunning){
+            setTimeout(() => setTimeCounter(timeCounter - 1), 1000)
+        }
+    }, [timeCounter,timmerRunning])
+
+
     useEffect(() =>{
-        setrandomOGCards(randomOG?.map(card =>({...card, guessed: false})) || [])
-    },[randomOG])
+        const randomized = randomOG?.map(card =>({...card, guessed: 0})) || []
+        setrandomOGCards(randomized)
+    }, [randomOG])
 
     const [lastDirection, setLastDirection] = useState()
     const correctCards = []
 
-//     const swiped = (direction, cardName) => {
-        
-//         if(direction === 'right') {
-//             setCounter(counter+1)
-//             correctCards.push(cardName)
-//             setrandomOGCards(cards =>({
-
-// //aqui!!
-//             }))
-
-//         }
-//         console.log('removing: ' + cardName)
-//         setLastDirection(direction)
-//     }
-
-
-
 const swiped = (direction, cardName) => {
+    
     if (direction === 'right') {
         setCounter(counter + 1);
         const updatedCards = randomOGCards?.map(card => {
-            if (card.name === cardName) {
-                return { ...card, guessed: true };
-            }
-            return card;
-        });
-        setrandomOGCards(updatedCards);
+            return card.name === cardName ? { ...card, guessed: currentTeam } : card
+        })
+        setrandomOGCards(updatedCards)
     }
-    console.log('removing: ' + cardName);
-    setLastDirection(direction);
+    console.log('removing: ' + cardName)
+    setLastDirection(direction)
 };
     const outOfFrame = (name) => {
         console.log(name + ' left the screen!')
@@ -55,7 +57,7 @@ console.log({randomOGCards})
         <div>
             <div className='cardContainer'>
                  
-            
+            <p onClick={() => setTimerRunning(true)}>time counter: {timeCounter}</p>
                 {randomOGCards?.map((cards) =>
                     <TinderCard className='swipe' key={cards.name} onSwipe={(dir) => swiped(dir, cards.name)} onCardLeftScreen={() => outOfFrame(cards.name)}>
                         <div className='card'>

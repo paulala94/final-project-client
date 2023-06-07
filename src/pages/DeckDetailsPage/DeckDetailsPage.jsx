@@ -8,7 +8,6 @@ import CardComponent from '../../components/CardComponent/CardComponent'
 const DeckDetailsPage = () => {
     const { _id } = useParams()
     const [deck, setDeck] = useState({})
-    const [cardDeck, setCardDeck] = useState(null)
 
     useEffect(() => {
         loadDeck()
@@ -19,7 +18,6 @@ const DeckDetailsPage = () => {
             .getDeckInfo(_id)
             .then(({ data }) => {
                 setDeck(data)
-                setCardDeck(data.cards)
             })
             .catch(err => console.log(err))
     }
@@ -32,7 +30,7 @@ const DeckDetailsPage = () => {
                 <>
                     <h1>Detalles de {deck.name}</h1>
                     <Row>
-                    {cardDeck?.map(elm => (
+                    {deck?.cards?.map(elm => (
                         <Col md={{ span: 4 }} key={elm._id}>
                             <CardComponent deck={deck}{...elm} />
                         </Col>

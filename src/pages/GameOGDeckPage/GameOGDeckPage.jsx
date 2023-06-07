@@ -30,13 +30,10 @@ const handleClick = e => {
 return (
     <div>
         
-        {/* FALTA EL CONTADOR Y EL CRONÓMETRO*/}
-        
         {counterVisible && <h1>Puntos: {counter1}</h1>}
 
-        {timerVisible && <Timer />}
-
         {buttonVisible && <Button onClick={handleClick}>¡Empezar!</Button>}
+        
         <GameSwipe randomOG={random} setCounter={setCounter1} counter={counter1}/>
     </div>
 )

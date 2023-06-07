@@ -11,7 +11,7 @@ const GameCard = ({name, _id}) => {
         getCard()
     }, [_id])
 
-     const getCard = () => {
+    const getCard = () => {
         cardService
             .getCardInfo(_id)
             .then(({ data }) => {
@@ -23,11 +23,10 @@ const GameCard = ({name, _id}) => {
 
   return (
     <Card className="mb-3 Card">
-            <Card.Body>
-                <Card.Title>{name}</Card.Title>
-
-            </Card.Body>
-        </Card>
+        <Card.Body>
+            <Card.Title>{name}</Card.Title>
+        </Card.Body>
+    </Card>
   )
 }
 

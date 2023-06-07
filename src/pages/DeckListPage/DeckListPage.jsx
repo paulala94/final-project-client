@@ -24,13 +24,12 @@ const DeckListPage = () => {
 
             <h1>Todos los mazos</h1>
 
-            {
-                <Button size="sm" variant="dark">
-                    <Link to={'/crear-mazos'}>Crear nuevo mazo</Link>
-                </Button>
-            }
+            <Button size="sm" variant="dark">
+                <Link to={'/crear-mazos'}>Crear nuevo mazo</Link>
+            </Button>
 
             <hr />
+            
             <Row>
                 {
                     !decks

@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import deckService from '../../services/deckService'
 import { Form, Button } from 'react-bootstrap'
-import { useNavigate } from "react-router-dom"
 
 
 
@@ -23,8 +22,8 @@ const CreateDeckForm = () => {
             .create(deckData)
             .then(({ data }) => alert('done'))
             .catch((err) => console.log(err));
-
     }
+
     return (
         <div className="container">
 

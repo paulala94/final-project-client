@@ -25,33 +25,28 @@ const ProfilePage = () => {
 
     const [key, setKey] = useState()
 
-
-    const getDecks = () => {
-
-        deckService
-            .getOwnerDecks(user._id)
-            .then(({ data }) => {
-                setUserDecks(data)
-
-            })
-            .catch(err => console.log(err))
-    }
-
-    useEffect(() => {
-        getDecks()
-    }, [_id])
-
     useEffect(() => {
         getUser()
     }, [user._id])
 
-    const getCards = () => {
+    useEffect(() => {
+        getCards()
+        getDecks()
+    }, [_id])
 
+    const getDecks = () => {
+        deckService
+            .getOwnerDecks(user._id)
+            .then(({ data }) => {
+                setUserDecks(data)
+            })
+            .catch(err => console.log(err))
+    }
+
+    const getCards = () => {
         cardService
             .getOwnerCards(user._id)
-            .then(({ data }) => {
-                setUserCards(data)
-            })
+            .then(({ data }) => setUserCards(data))
             .catch(err => console.log(err))
     }
 
@@ -61,17 +56,6 @@ const ProfilePage = () => {
             .then(({ data }) => setProfileUser(data))
             .catch(err => console.log(err))
     }
-    useEffect(() => {
-        getDecks()
-    }, [_id])
-
-    useEffect(() => {
-        getCards()
-    }, [_id])
-
-    useEffect(() => {
-        getUser()
-    }, [user._id])
 
     const handleDelete = e => {
         userService

@@ -19,7 +19,6 @@ const EditDeckForm = () => {
     }, [_id])
 
     const getDeck = () => {
-
         deckService
             .getDeckInfo(_id)
             .then(({ data }) => setDeckData(data))
@@ -32,19 +31,17 @@ const EditDeckForm = () => {
     }
 
     const handleSubmit = e => {
-
         e.preventDefault()
-
         deckService
             .editDeck(_id, deckData)
             .then(() => navigate('/todos-los-mazos'))
             .catch(err => console.log(err))
 
     }
+
     const { name, description } = deckData
 
     return (
-
         <Form onSubmit={handleSubmit}>
 
             <Form.Group className="mb-3" controlId="name">

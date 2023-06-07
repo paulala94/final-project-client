@@ -21,7 +21,12 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
 
     useEffect(() => {
         loadCards()
+        loadDecks()
     }, [])
+
+    useEffect(() => {
+        getCard()
+    }, [_id])
 
     const loadCards = () => {
         cardService
@@ -29,9 +34,6 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
             .then(({ data }) => setCards(data))
             .catch(err => console.log(err))
     }
-    useEffect(() => {
-        loadDecks()
-    }, [])
 
     const loadDecks = () => {
         deckService
@@ -39,10 +41,6 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
             .then(({ data }) => setDecks(data))
             .catch(err => console.log(err))
     }
-
-    useEffect(() => {
-        getCard()
-    }, [_id])
 
     const getCard = () => {
         cardService
@@ -62,10 +60,10 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
     }
 
     const handleRemove = () => {
-        const deckId = deck?._id // Gets the deck ID from the deck prop
+        const deckId = deck?._id
 
         cardService
-            .removeCardFromDeck(_id, deckId) // Passes both card_id and deckId to the service function
+            .removeCardFromDeck(_id, deckId)
             .then(() => {
                 console.log(_id)
                 alert("carta sacada del mazo")

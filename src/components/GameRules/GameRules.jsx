@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 import '../GameRules/GameRules.css'
 
 
-
 const GameRules = () => {
   return (
     <Container className='game-rules-container'>

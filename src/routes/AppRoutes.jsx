@@ -1,25 +1,24 @@
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '../pages/HomePage/HomePage'
+import GameRulesPage from '../pages/GameRulesPage/GameRules'
 import GamePage from '../pages/GamePage/GamePage'
+import GameOGDeckPage from '../pages/GameOGDeckPage/GameOGDeckPage'
 import SignupPage from '../pages/SignupPage/SignupPage.jsx'
 import LoginPage from '../pages/LoginPage/LoginPage.jsx'
 import ProfilePage from '../pages/ProfilePage/ProfilePage.jsx'
 import EditProfilePage from '../pages/EditProfilePage/EditProfilePage.jsx'
 import CreateCardPage from '../pages/CreateCardPage/CreateCardPage'
 import EditCardPage from '../pages/EditCardPage/EditCardPage'
-import CreateDeckPage from '../pages/CreateDeckPage/CreateDeckPage'
 import CardListPage from '../pages/CardListPage/CardListPage'
-import DeckListPage from '../pages/DeckListPage/DeckListPage'
+import CreateDeckPage from '../pages/CreateDeckPage/CreateDeckPage'
 import EditDeckPage from '../pages/EditDeckPage/EditDeckPage'
-import GameRulesPage from '../pages/GameRulesPage/GameRules'
+import DeckListPage from '../pages/DeckListPage/DeckListPage'
 import UserDecksListPage from '../pages/UserDecksListPage/UserDecksListPage'
-import CardsInDecksPage from '../pages/CardsInDecksPage/CardsInDecksPage'
 import UserCardsListPage from '../pages/UserCardsListPage/UserCardsListPage'
-
-import PrivateRoute from './PrivateRoutes'
 import DeckDetailsPage from '../pages/DeckDetailsPage/DeckDetailsPage'
 
-import GameOGDeckPage from '../pages/GameOGDeckPage/GameOGDeckPage'
+import PrivateRoute from './PrivateRoutes'
+
 
 const AppRoutes = () => {
 
@@ -37,9 +36,7 @@ const AppRoutes = () => {
                 <Route path="/editar-perfil/:_id" element={<EditProfilePage />} />
                 <Route path="/crear-cartas" element={<CreateCardPage />} />
                 <Route path="/editar-carta/:_id" element={<EditCardPage />} />
-                <Route path="/crear-cartas" element={<CreateCardPage />} />
                 <Route path="/tus-cartas/:_id" element={<UserCardsListPage />} />
-                <Route path="/mazo-cartas" element={<CardsInDecksPage />} />
                 <Route path="/crear-mazos" element={<CreateDeckPage />} />
                 <Route path="/tus-mazos/:_id" element={<UserDecksListPage />} />
                 <Route path="/mazo-detalles/:_id" element={<DeckDetailsPage />} />
@@ -50,9 +47,6 @@ const AppRoutes = () => {
                 <Route path="/todas-las-cartas" element={<CardListPage />} />
                 <Route path="/todos-los-mazos" element={<DeckListPage />} />
             </Route>
-
-
-
         </Routes>
     )
 }

@@ -85,7 +85,7 @@ const SignupForm = () => {
             </Form.Group>
 
             <div className="d-grid">
-                <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Registrarme'}</Button>
+                <Button className="edit-btn" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Registrarme'}</Button>
             </div>
 
         </Form>

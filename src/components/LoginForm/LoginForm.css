@@ -1,0 +1,11 @@
+.form-control:focus {
+    border-color: #F75E66;
+}
+
+.btn-primary,
+.btn:first-child:active,
+.btn:focus,
+.btn-primary:focus {
+    background-color: #F75E66;
+    border-color: #F75E66;
+}

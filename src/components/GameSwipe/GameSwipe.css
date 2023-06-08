@@ -35,3 +35,9 @@
     margin: 10px;
     color: #fff;
 }
+
+.btn-players {
+    background-color: #ff6f6f;
+    padding: 15px;
+    border-radius: 5px;
+}

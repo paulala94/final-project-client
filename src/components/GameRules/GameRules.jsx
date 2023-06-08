@@ -38,7 +38,7 @@ const GameRules = () => {
 
       </section>
 
-      <Link to='/' className='play-bt'>A JUGAR</Link>
+      <Link to='/juego' className='play-bt'>A JUGAR</Link>
     </Container>
   )
 }

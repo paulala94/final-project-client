@@ -7,9 +7,9 @@ const LoginPage = () => {
 
         <Container>
 
-            <Row>
+            <Row >
 
-                <Col md={{ offset: 3, span: 6 }}>
+                <Col className='d-flex flex-column' md={{ offset: 3, span: 6 }}>
 
                     <h1>Login</h1>
 

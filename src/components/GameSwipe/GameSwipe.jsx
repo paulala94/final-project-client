@@ -71,11 +71,11 @@ function GameSwipe({ randomOG }) {
                     currentTeam === 1
                         ?
                         <>
-                            <Button onClick={handleClick}>TE TOCA EQUIPO 1!!!! VAMOOOS ESTOY A TOPE JEFE DE EQUIPO</Button>
+                            <div onClick={handleClick} className='btn-players' style={{ color: 'white' }}>TE TOCA EQUIPO 1!!!! VAMOOOS ESTOY A TOPE JEFE DE EQUIPO</div>
                         </>
                         :
                         <>
-                            <Button onClick={handleClick}>TE TOCA EQUIPO 2!!!! SUUUUUUUUUUUUU</Button>
+                            <div onClick={handleClick} className='btn-players'>TE TOCA EQUIPO 2!!!! SUUUUUUUUUUUUU</div>
                         </>
                 )}
             </div>

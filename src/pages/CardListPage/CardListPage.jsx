@@ -3,6 +3,8 @@ import { Container, Row, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import cardService from "../../services/cardService"
 import CardList from "../../components/CardList/CardList"
+import ArrowUp from "../../components/ArrowUp/ArrowUp"
+
 
 const CardListPage = () => {
 
@@ -29,7 +31,7 @@ const CardListPage = () => {
             </Button>
 
             <hr />
-            
+
             <Row>
                 {
                     !cards
@@ -38,8 +40,9 @@ const CardListPage = () => {
                         :
                         <CardList cards={cards} />
                 }
-            </Row>
 
+            </Row>
+            <ArrowUp />
         </Container>
     )
 }

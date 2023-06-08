@@ -1,0 +1,9 @@
+.scroll-button {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: transparent;
+    font-size: 30px;
+    color: #F77E21;
+    border: none;
+}

@@ -91,7 +91,9 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
                             cardIds?.includes(_id)
                                 ?
                                 <>
-                                    <Link as='span' className='pointer' onClick={handleRemove}>Eliminar esta carta del mazo</Link>
+                                    <Button className="card-bt-delete">
+                                        <Link as='span' className='pointer' onClick={handleRemove}>Eliminar esta carta del mazo</Link>
+                                    </Button>
                                 </>
                                 :
                                 <>

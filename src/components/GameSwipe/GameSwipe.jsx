@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './GameSwipe.css'
 import { Button, Card } from 'react-bootstrap'
 import Timer from '../Timer/Timer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 function GameSwipe({ randomOG }) {
@@ -85,7 +87,7 @@ function GameSwipe({ randomOG }) {
                     currentTeam === 1
                         ?
                         <>
-                            <div onClick={handleClick} className='btn-players' style={{ color: 'white' }}>TE TOCA EQUIPO 1!!!! VAMOOOS ESTOY A TOPE JEFE DE EQUIPO</div>
+                            <div onClick={handleClick} className='btn-players'><strong>TE TOCA EQUIPO 1!!!! VAMOOOS ESTOY A TOPE JEFE DE EQUIPO</strong></div>
                         </>
                         :
                         <>
@@ -110,8 +112,10 @@ function GameSwipe({ randomOG }) {
                 <Timer setTimeCounter={setTimeCounter} ROUND_TIME={ROUND_TIME} timerRunning={timerRunning} setTimerRunning={setTimerRunning} timeCounter={timeCounter} startRound={startRound} setStartRound={setStartRound} currentTeam={currentTeam} setCurrentTeam={setCurrentTeam}
                 />
 
-                <div>
-                    <Button onClick={handleCorrect}>acierto</Button>
+                <div onClick={handleCorrect} className='btn-acierto'>
+
+                    <FontAwesomeIcon icon={faCheckCircle} style={{ color: "#F77E21", fontSize: "100px" }} />
+
                 </div>
 
                 {/* <div>

@@ -61,10 +61,6 @@ const CardComponent = ({ name, description, genre, owner, _id, deck }) => {
 
     const handleRemove = () => {
         const deckId = deck?._id
-<<<<<<< HEAD
-
-=======
->>>>>>> f88995aaf506c5f54deb81060112db81379e5f28
         cardService
             .removeCardFromDeck(_id, deckId)
             .then(() => {

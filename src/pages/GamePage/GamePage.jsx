@@ -5,20 +5,24 @@ import { AuthContext } from '../../contexts/auth.context'
 
 const GamePage = () => {
 
-const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   return (
     <div>
       {
         user
-        ?
-        <Button variant="dark" className='me-2'>
-            <Link to='/juego/mazo-original'>Mazo original</Link>
-        </Button>
-        :
-        <Button variant="dark" className='me-2'>
-            <Link to='/juego/mazo-original'>Mazo original</Link>
-        </Button>
+          ?
+          <Link to='/juego/mazo-original'>
+            <Button variant="dark" className='me-2'>
+              Mazon original
+            </Button>
+          </Link>
+          :
+          <Link to='/juego/mazo-original'>
+            <Button variant="dark" className='me-2'>
+              Mazon original
+            </Button>
+          </Link>
       }
 
     </div>

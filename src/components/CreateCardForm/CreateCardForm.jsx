@@ -50,7 +50,7 @@ const CreateCardForm = () => {
                 </Form.Select>
 
                 <div className="d-grid mt-3">
-                    <Button variant="dark" type="submit">
+                    <Button className='edit-btn' type="submit">
                         Crear carta
                     </Button>
                 </div>
@@ -66,7 +66,7 @@ const CreateCardForm = () => {
                     <Modal.Title id="contained-modal-title-vcenter">¡Carta creada!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <CreateCardModal closeModal={() => setShowModal(false)} setCardData={setCardData}/>
+                    <CreateCardModal closeModal={() => setShowModal(false)} setCardData={setCardData} />
                 </Modal.Body>
             </Modal>
         </div>

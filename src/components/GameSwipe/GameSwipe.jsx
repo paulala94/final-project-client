@@ -30,14 +30,14 @@ function GameSwipe({ randomOG }) {
             currentTeam === 1 ? setCurrentTeam(2) : setCurrentTeam(1)
             return
         }
-        
+
     }, [timeCounter])
 
     const updatedWithGuessedCards = () => {
         const cardsWithGuessed = randomOG?.map(card => ({ ...card, guessed: 0 })) || []
         randomOG?.length && setrandomOGCards(cardsWithGuessed)
     }
-    
+
     useEffect(() => {
         handleRounds()
 
@@ -114,6 +114,8 @@ function GameSwipe({ randomOG }) {
                             <div onClick={handleClick} className='btn-players'>TE TOCA EQUIPO 2!!!! SUUUUUUUUUUUUU</div>
                         </>
                 )}
+                <Timer setTimeCounter={setTimeCounter} ROUND_TIME={ROUND_TIME} timerRunning={timerRunning} setTimerRunning={setTimerRunning} timeCounter={timeCounter} startRound={startRound} setStartRound={setStartRound} currentTeam={currentTeam} setCurrentTeam={setCurrentTeam}
+                />
             </div>
             {
                 showModal 
@@ -134,7 +136,7 @@ function GameSwipe({ randomOG }) {
                     {randomOGCards?.map(card => (
 
                         <Card key={card._id}>
-                            <div className='card'>
+                            <div className='card' style={{ fontSize: 40 }}>
                                 {card.name}
                             </div>
                         </Card>
@@ -142,12 +144,11 @@ function GameSwipe({ randomOG }) {
                     ))}
 
                 </div>
-                <Timer setTimeCounter={setTimeCounter} ROUND_TIME={ROUND_TIME} timerRunning={timerRunning} setTimerRunning={setTimerRunning} timeCounter={timeCounter} startRound={startRound} setStartRound={setStartRound} currentTeam={currentTeam} setCurrentTeam={setCurrentTeam}
-                />
+
 
                 <div onClick={handleCorrect} className='btn-acierto'>
 
-                    <FontAwesomeIcon icon={faCheckCircle} style={{ color: "#F77E21", fontSize: "100px" }} />
+                    <FontAwesomeIcon icon={faCheckCircle} style={{ color: "#F77E21", fontSize: "100px" }} className='scale-up-center' />
 
                 </div>
 
@@ -162,3 +163,9 @@ function GameSwipe({ randomOG }) {
 }
 
 export default GameSwipe
+
+
+
+
+
+// para que el modal aparezca setShowModal true

@@ -26,32 +26,32 @@ const GamePage = () => {
       .then(({ data }) => setDecks(data))
       .catch(err => console.log(err))
   }
-  console.log({decks})
+  console.log({ decks })
 
   const buttonStyle = {
-    width:'200px',
-    height:'80px',
-    color:'white'
+    width: '200px',
+    height: '80px',
+    color: 'white'
   }
 
   return (
-    <div style={{display:'flex',flexDirection:'column',gap:'15px'}}>
-            <Link to='/juego/mazo-original'>
-              <Button className='me-2 btn-edit' style={buttonStyle}>
-                Mazo original
-              </Button>
-            </Link>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '60px' }}>
+      <Link to='/juego/mazo-original'>
+        <Button className='me-2 btn-edit' style={buttonStyle}>
+          Mazo original
+        </Button>
+      </Link>
 
-            {
-            user &&  decks?.map(deck => 
-                  <Link to={`/juego/${deck._id}`}>
-                    <Button className='me-2 btn-edit' style={buttonStyle}>
-                      {deck.name}
-                    </Button>
-                  </Link>
+      {
+        user && decks?.map(deck =>
+          <Link to={`/juego/${deck._id}`}>
+            <Button className='me-2 btn-edit' style={buttonStyle}>
+              {deck.name}
+            </Button>
+          </Link>
 
-              )
-            }          
+        )
+      }
     </div>
   )
 }

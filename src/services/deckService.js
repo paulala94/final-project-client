@@ -33,11 +33,9 @@ class DeckService {
         return this.api.get(`/getDeckInfo/${_id}`, deckData)
     }
 
-    randomizeCards(_id, deckData) {
+    getRandomizedDeckCards(_id, deckData) {
         return this.api.get(`/getRandomizedDeckCards/${_id}`, deckData)
     }
-
-
 
     getOwnerDecks(_id, deckData) {
         return this.api.get(`/getOwnerDecks/${_id}`, deckData)

@@ -41,6 +41,8 @@ const AppRoutes = () => {
                 <Route path="/tus-mazos/:_id" element={<UserDecksListPage />} />
                 <Route path="/mazo-detalles/:_id" element={<DeckDetailsPage />} />
                 <Route path="/editar-mazo/:_id" element={<EditDeckPage />} />
+                <Route path="/juego/:_id" element={<GameOGDeckPage />} />
+
             </Route>
 
             <Route element={<PrivateRoute admittedRoles={['ADMIN']} />}>

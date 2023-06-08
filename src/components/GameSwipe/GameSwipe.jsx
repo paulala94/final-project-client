@@ -6,11 +6,13 @@ import Timer from '../Timer/Timer'
 
 function GameSwipe({ randomOG }) {
 
-    const [randomOGCards, setrandomOGCards] = useState([])
+    const [randomOGCards, setrandomOGCards] = useState(null)
 
     const [currentTeam, setCurrentTeam] = useState(1)
 
     const [showCurrentCard, setShowCurrentCard] = useState(true)
+
+    const [rounds, setRounds] = useState(1)
 
     const ROUND_TIME = 10
 
@@ -31,12 +33,19 @@ function GameSwipe({ randomOG }) {
             // currentTeam === 1 ? setCurrentTeam(2) : setCurrentTeam(1)
             return
         }
+        
     }, [timeCounter])
 
     const updatedWithGuessedCards = () => {
         const cardsWithGuessed = randomOG?.map(card => ({ ...card, guessed: 0 })) || []
-        setrandomOGCards(cardsWithGuessed)
+        randomOG?.length && setrandomOGCards(cardsWithGuessed)
     }
+    
+    useEffect(() => {
+        handleRounds()
+        console.log(rounds)
+
+    }, [randomOGCards])
 
     useEffect(() => {
         updatedWithGuessedCards()
@@ -48,20 +57,25 @@ function GameSwipe({ randomOG }) {
         setStartRound(true)
     }
 
-
     const handleCorrect = () => {
-        const currentCard = randomOGCards.find(card => card.guessed === 0)
+        const currentCard = randomOGCards?.find(card => card.guessed === 0)
         
         if (currentCard) {
             const updatedGuessedCards = [...guessedCards, currentCard]
             setGuessedCards(updatedGuessedCards)
         }
 
-        const updatedRandomOGCards = randomOGCards.filter(card => card._id !== currentCard._id)
+        const updatedRandomOGCards = randomOGCards?.filter(card => card._id !== currentCard._id)
         setrandomOGCards(updatedRandomOGCards)
-
-        // console.log(guessedCards)
-        // setShowCurrentCard(false)
+    }
+    
+    const handleRounds = () => { 
+      
+        if(randomOGCards?.length === 0) {
+            setRounds(rounds+1)
+            setTimeCounter(0)
+            alert('SACABÓ LA RONDA')
+        }
     }
 
     return (
@@ -82,7 +96,7 @@ function GameSwipe({ randomOG }) {
 
             <div style={{ display: timerRunning ? 'inherit' : 'none' }}>
                 <div className='cardContainer'>
-                    {randomOGCards.map(card => (
+                    {randomOGCards?.map(card => (
 
                         <Card key={card._id}>
                             <div className='card'>

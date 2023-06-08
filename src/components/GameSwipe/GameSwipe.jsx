@@ -1,38 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import './GameSwipe.css'
-import { Button, Card } from 'react-bootstrap'
+import { Modal, Card } from 'react-bootstrap'
 import Timer from '../Timer/Timer'
+import RoundModal from '../RoundModal/RoundModal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 function GameSwipe({ randomOG }) {
 
+    const ROUND_TIME = 5
     const [randomOGCards, setrandomOGCards] = useState(null)
-
     const [currentTeam, setCurrentTeam] = useState(1)
-
-    const [showCurrentCard, setShowCurrentCard] = useState(true)
-
+    const [showModal, setShowModal] = useState(false)
     const [rounds, setRounds] = useState(1)
-
-    const ROUND_TIME = 10
-
-    const [pointsCounterVisible, setPointsCounterVisible] = useState(false)
-
-    // const [timerVisible, setTimerVisible] = useState(false)
     const [timeCounter, setTimeCounter] = useState(ROUND_TIME)
     const [timerRunning, setTimerRunning] = useState(false)
-
+    const [winner, setWinner] = useState(0)
     const [startRound, setStartRound] = useState(null)
     const [guessedCards, setGuessedCards] = useState([])
+    const [teamOnePoints, setTeamOnePoints] = useState(0)
+    const [teamTwoPoints, setTeamTwoPoints] = useState(0)
 
 
     useEffect(() => {
         if (timeCounter <= 0) {
             setTimerRunning(false)
             setTimeCounter(ROUND_TIME)
-            // currentTeam === 1 ? setCurrentTeam(2) : setCurrentTeam(1)
+            currentTeam === 1 ? setCurrentTeam(2) : setCurrentTeam(1)
             return
         }
         
@@ -45,7 +40,6 @@ function GameSwipe({ randomOG }) {
     
     useEffect(() => {
         handleRounds()
-        console.log(rounds)
 
     }, [randomOGCards])
 
@@ -60,25 +54,51 @@ function GameSwipe({ randomOG }) {
     }
 
     const handleCorrect = () => {
-        const currentCard = randomOGCards?.find(card => card.guessed === 0)
+        const currentCard = randomOGCards?.find(card => card.guessed === 0) // no se si esto pilla currrent card
         
         if (currentCard) {
-            const updatedGuessedCards = [...guessedCards, currentCard]
+            const updatedGuessedCards = [...guessedCards, {...currentCard,guessed:currentTeam}]
             setGuessedCards(updatedGuessedCards)
         }
 
         const updatedRandomOGCards = randomOGCards?.filter(card => card._id !== currentCard._id)
         setrandomOGCards(updatedRandomOGCards)
     }
-    
+
+    const handleWinner = () => {
+        const team1 = guessedCards?.filter(elm => elm.guessed === 1)
+        const team2 = guessedCards?.filter(elm => elm.guessed === 2)
+
+        if(team1.length > team2.length) {
+            setWinner(1)
+            setTeamOnePoints(teamOnePoints+1)
+        }
+        else {
+            setWinner(2)
+            setTeamTwoPoints(teamTwoPoints+1)
+        }
+    }
+   
     const handleRounds = () => { 
-      
         if(randomOGCards?.length === 0) {
             setRounds(rounds+1)
             setTimeCounter(0)
-            alert('SACABÓ LA RONDA')
+            handleWinner()
+            setShowModal(true)
         }
     }
+
+    const nextRound = () => {
+        setGuessedCards([])
+        updatedWithGuessedCards()
+        setTimeCounter(0)
+    }
+
+    useEffect(() => {
+        if(rounds > 3){
+            setShowModal(true)
+        }
+    }, [rounds])
 
     return (
         <div>
@@ -95,7 +115,20 @@ function GameSwipe({ randomOG }) {
                         </>
                 )}
             </div>
-
+            {
+                showModal 
+                && 
+                <Modal show={showModal} onHide={() => setShowModal(false)}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                className='text-center' >
+                    <RoundModal winner={winner}/>
+                    <div onClick={nextRound}>
+                        Siguiente ronda
+                    </div>
+                </Modal>
+            }
             <div style={{ display: timerRunning ? 'inherit' : 'none' }}>
                 <div className='cardContainer'>
                     {randomOGCards?.map(card => (

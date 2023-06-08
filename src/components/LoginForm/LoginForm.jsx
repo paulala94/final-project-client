@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap"
 import authService from './../../services/authService'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../contexts/auth.context"
-
+import './LoginForm.css'
 const LoginForm = () => {
 
     const [loginData, setLoginData] = useState({
@@ -50,7 +50,7 @@ const LoginForm = () => {
             </Form.Group>
 
             <div className="d-grid">
-                <Button variant="dark" type="submit">Acceder</Button>
+                <Button className="edit-btn" type="submit">Acceder</Button>
             </div>
 
         </Form>

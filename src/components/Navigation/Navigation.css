@@ -48,6 +48,10 @@
     color: #f76459;
 }
 
+.dropdown-nav {
+    background-color: #fff !important;
+}
+
 .dropdown-item.active {
     background-color: #f76359;
 }

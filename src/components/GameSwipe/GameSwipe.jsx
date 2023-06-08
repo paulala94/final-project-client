@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import TinderCard from 'react-tinder-card'
 import './GameSwipe.css'
 import { Col, Row, Button } from 'react-bootstrap'
-import Team1 from '../Team1/Team1'
-import Team2 from '../Team2/Team2'
 import Timer from '../Timer/Timer'
 
 
@@ -22,15 +20,18 @@ function GameSwipe({ randomOG }) {
     const [timeCounter, setTimeCounter] = useState(ROUND_TIME)
     const [timerRunning, setTimerRunning] = useState(false)
 
+    const [startRound, setStartRound] = useState(null)
+
     useEffect(() => {
         if (timeCounter <= 0) {
             setTimerRunning(false)
             setTimeCounter(ROUND_TIME)
-            currentTeam === 1 ? setCurrentTeam(2) : setCurrentTeam(1)
+            // currentTeam === 1 ? setCurrentTeam(2) : setCurrentTeam(1)
             return
         }
     }, [timeCounter])
 
+    console.log(currentTeam)
 
     const randomizeCards = () => {
         const randomized = randomOG?.map(card => ({ ...card, guessed: 0 })) || []
@@ -41,14 +42,14 @@ function GameSwipe({ randomOG }) {
         randomizeCards()
     }, [randomOG])
 
-    useEffect(() => {
-        console.log(randomOGCards)
-        // if (!randomOGCards) {
-        //     return
-        // }
+    // useEffect(() => {
+    //     console.log(randomOGCards)
+    // if (!randomOGCards) {
+    //     return
+    // }
 
 
-    }, [randomOGCards])
+    // }, [randomOGCards])
 
     const teamOneCards = []
     const teamTwoCards = []
@@ -56,31 +57,30 @@ function GameSwipe({ randomOG }) {
 
     const [lastDirection, setLastDirection] = useState()
 
-//     const swiped = (direction, cardName) => {
-    
-//     if (direction === 'right') {
-//         setCounter(counter + 1);
-//         const updatedCards = randomOGCards?.map(card => {
-//             return card.name === cardName ? { ...card, guessed: currentTeam } : card
-//         })
-//         setrandomOGCards(updatedCards)
-//     }
-//     console.log('removing: ' + cardName)
-//     setLastDirection(direction)
-// };
-//     const outOfFrame = (name) => {
-//         console.log(name + ' left the screen!')
+    //     const swiped = (direction, cardName) => {
+
+    //     if (direction === 'right') {
+    //         setCounter(counter + 1)
+    //         const updatedCards = randomOGCards?.map(card => {
+    //             return card.name === cardName ? { ...card, guessed: currentTeam } : card
+    //         })
+    //         setrandomOGCards(updatedCards)
+    //     }
+    //     console.log('removing: ' + cardName)
+    //     setLastDirection(direction)
+    // }
+    //     const outOfFrame = (name) => {
+    //         console.log(name + ' left the screen!')
 
     const handleClick = () => {
         setTimerRunning(true)
-        setTimeCounter(ROUND_TIME - 1)
+        setTimeCounter(ROUND_TIME)
+        setStartRound(true)
     }
 
     function swiped(direction, cardName) {
         console.log({ direction, cardName })
 
-
-        //si se descomenta esto se empizan a llamar cartas de manera exponencial y peta
 
         if (direction === 'right') {
             const updatedCards = randomOGCards?.map(card => {
@@ -114,11 +114,11 @@ function GameSwipe({ randomOG }) {
                     currentTeam === 1
                         ?
                         <>
-                            <Button onClick={handleClick}>TE TOCA EQUIPO 1!!!! VAMOOOS ESTOY A TOPE JEFE DE EQUIPO</Button>
+                            <div onClick={handleClick} className='btn-players' style={{ color: 'white' }}>TE TOCA EQUIPO 1!!!! VAMOOOS ESTOY A TOPE JEFE DE EQUIPO</div>
                         </>
                         :
                         <>
-                            <Button onClick={handleClick}>TE TOCA EQUIPO 2!!!! SUUUUUUUUUUUUU</Button>
+                            <div onClick={handleClick} className='btn-players'>TE TOCA EQUIPO 2!!!! SUUUUUUUUUUUUU</div>
                         </>
                 )}
             </div>
@@ -136,9 +136,9 @@ function GameSwipe({ randomOG }) {
                     ))}
 
                 </div>
-                <Timer setTimeCounter={setTimeCounter} ROUND_TIME={ROUND_TIME} setTimerRunning={setTimerRunning} timeCounter={timeCounter} />
+                <Timer setTimeCounter={setTimeCounter} ROUND_TIME={ROUND_TIME} timerRunning={timerRunning} setTimerRunning={setTimerRunning} timeCounter={timeCounter} startRound={startRound} setStartRound={setStartRound} currentTeam={currentTeam} setCurrentTeam={setCurrentTeam}
+                />
 
-                {/* <p>Tiempo restante: {timeCounter}</p> */}
 
             </div>
 

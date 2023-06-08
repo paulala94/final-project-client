@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Button, Col } from 'react-bootstrap'
 import gameService from '../../services/gameService'
 import GameSwipe from '../../components/GameSwipe/GameSwipe'
-import Timer from '../../components/Timer/Timer'
 
 
 

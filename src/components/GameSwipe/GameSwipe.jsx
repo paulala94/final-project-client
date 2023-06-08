@@ -36,7 +36,7 @@ function GameSwipe({ randomOG, setCounter, counter, setRandom }) {
     const [lastDirection, setLastDirection] = useState()
     const correctCards = []
 
-const swiped = (direction, cardName) => {
+    const swiped = (direction, cardName) => {
     
     if (direction === 'right') {
         setCounter(counter + 1);

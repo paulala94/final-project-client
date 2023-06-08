@@ -1,13 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import GameSwipe from '../GameSwipe/GameSwipe'
 
-const Timer = ({ setTimeCounter, ROUND_TIME }) => {
+const Timer = ({ timeCounter, setTimeCounter, ROUND_TIME, startRound, setStartRound, currentTeam, setCurrentTeam }) => {
 
   const [counter, setCounter] = useState(ROUND_TIME)
 
+
   useEffect(() => {
-    counter > 0 ? setTimeout(() => setCounter(counter - 1), 1000) : setTimeCounter(0)
-  }, [counter])
+
+    if(startRound === true && counter > 0){
+      
+      setTimeout(() => setCounter(counter - 1), 1000)
+       
+    }
+    else if(counter == 0) setStartRound(false)
+    
+    if(startRound === false){
+      // currentTeam == 1 && setCurrentTeam(2)
+      // currentTeam == 2 && setCurrentTeam(1)
+      setTimeCounter(0)
+    }
+
+
+  // counter > 0 ? setTimeout(() => setCounter(counter - 1), 1000) : setTimeCounter(0)
+  
+  }, [counter, startRound])
+
+  useEffect(()=> {
+    if(timeCounter === 0){
+       currentTeam == 1 && setCurrentTeam(2)
+      currentTeam == 2 && setCurrentTeam(1)
+    }
+  }, [timeCounter])
+
+  useEffect(()=> {
+    setCounter(ROUND_TIME)
+  }, [startRound])
 
   return (
     <div>

@@ -3,12 +3,7 @@ import { Button, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import { useParams } from 'react-router-dom'
-
-import Deck from "../../components/Deck/Deck"
 import deckService from "../../services/deckService"
-import DeckList from '../../components/DeckList/DeckList'
-import userService from '../../services/userService'
-
 
 const GamePage = () => {
 
@@ -31,49 +26,32 @@ const GamePage = () => {
       .then(({ data }) => setDecks(data))
       .catch(err => console.log(err))
   }
+  console.log({decks})
+
+  const buttonStyle = {
+    width:'200px',
+    height:'80px',
+    color:'white'
+  }
+
   return (
-    <div>
-      {
-        user
-          ?
-          <>
+    <div style={{display:'flex',flexDirection:'column',gap:'15px'}}>
             <Link to='/juego/mazo-original'>
-              <Button className='me-2 btn-edit' style={{ color: 'white' }}>
+              <Button className='me-2 btn-edit' style={buttonStyle}>
                 Mazo original
               </Button>
             </Link>
 
             {
+            user &&  decks?.map(deck => 
+                  <Link to={`/juego/${deck._id}`}>
+                    <Button className='me-2 btn-edit' style={buttonStyle}>
+                      {deck.name}
+                    </Button>
+                  </Link>
 
-              decks?.map(deck => {
-                return (
-                  // <Button className='me-2 btn-edit' style={{ color: 'white' }}>
-                  //   {deck.name}
-                  // </Button>
-                  <Button className='me-2 btn-edit' style={{ color: 'white' }}>
-                    <Link to={`/juego/${deck._id}`}>{deck.name}</Link>
-                  </Button>
-
-                )
-              })
-            }
-
-          </>
-          :
-
-          <Link to='/juego/mazo-original'>
-            <Button className='me-2 btn-edit' style={{ color: 'white' }}>
-              Mazo original
-            </Button>
-          </Link>
-
-
-
-
-
-
-      }
-
+              )
+            }          
     </div>
   )
 }

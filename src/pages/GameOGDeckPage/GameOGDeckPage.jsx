@@ -11,37 +11,37 @@ import deckService from '../../services/deckService'
 
 const GamePage = () => {
 
-    const [random, setRandom] = useState()
-    const [randomUser, setRandomUser] = useState()
+    const [deck, setDeck] = useState()
 
     const { _id } = useParams()
 
-    useEffect(() => {
-        deckService
-            .getRandomizedDeckCards(_id)
-            .then(({ data }) => {
-                setRandomUser(data)
-            })
-            .catch(err => console.log(err))
-    }, [])
 
-    useEffect(() => {
-        gameService
-            .getRandomOGCard()
-            .then(({ data }) => {
-                setRandom(data)
-            })
-            .catch(err => console.log(err))
+    useEffect(()=>{
+        if(_id){
+            deckService
+                .getRandomizedDeckCards(_id)
+                .then(({ data }) => {
+                    setDeck(data)
+                })
+                .catch(err => console.log(err))
 
-    }, [])
+        }else{
+            gameService
+                .getRandomOGCard()
+                .then(({ data }) => {
+                    setDeck(data)
+                })
+                .catch(err => console.log(err))
 
+        }
+    },[] )
 
     return (
         <div >
 
             <div>
                 <div className='d-flex justify-content-center'>
-                    <GameSwipe randomOG={random} />
+                    <GameSwipe randomOG={deck} />
 
                 </div>
             </div>

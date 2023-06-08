@@ -3,7 +3,7 @@ import { Row, Button, Col } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 
 
-const CreateCardModal = ({setCardData}) => {
+const CreateCardModal = ({ setCardData, closeModal }) => {
 
     const emptyForm = () => {
         setCardData({
@@ -11,6 +11,7 @@ const CreateCardModal = ({setCardData}) => {
             description: '',
             genre: '',
         })
+        closeModal()
     }
 
     return (
@@ -18,11 +19,11 @@ const CreateCardModal = ({setCardData}) => {
             <p>¡Carta creada!</p>
             <Row>
                 <Col className='d-flex justify-content-center'>
-                    <Button variant="outline-success" onClick={emptyForm} className='me-2'>
+                    <Button onClick={emptyForm} className='me-2 card-bt-delete'>
                         <Link to="/crear-cartas">Crea otra carta</Link>
                     </Button>
 
-                    <Button variant="outline-danger" className='ms-2'>
+                    <Button className='ms-2 card-bt-delete'>
                         <Link to="/perfil">Vuelve a tu perfil</Link>
                     </Button>
                 </Col>

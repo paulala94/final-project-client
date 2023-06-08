@@ -56,7 +56,7 @@ const EditDeckForm = () => {
 
             <div className="d-grid">
             </div>
-            <Button variant="dark" type="submit">Editar</Button>
+            <div className='edit-profile-bt' type="submit">Editar</div>
 
         </Form>
     )

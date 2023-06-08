@@ -12,11 +12,13 @@ const GamePage = () => {
       {
         user
           ?
+
           <Link to='/juego/mazo-original'>
             <Button className='me-2 btn-edit' style={{ color: 'white' }}>
               Mazo original
             </Button>
           </Link>
+
           :
           <Link to='/juego/mazo-original'>
             <Button className='me-2 btn-edit' style={{ color: 'white' }}>

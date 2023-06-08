@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 
 // import { Link } from 'react-router-dom'
 import EditDeckForm from '../../components/EditDeckForm/EditDeckForm'
+import { Container } from 'react-bootstrap'
 
 const EditDeckPage = () => {
 
@@ -28,11 +29,11 @@ const EditDeckPage = () => {
     const { name, description } = deckData
 
     return (
-        <div>
+        <Container>
             <h1>Edita tu mazo</h1>
 
             <EditDeckForm />
-        </div>
+        </Container>
     )
 }
 

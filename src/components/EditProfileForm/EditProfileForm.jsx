@@ -20,7 +20,7 @@ const EditProfileForm = () => {
     const navigate = useNavigate()
 
     const { _id } = useParams()
-    
+
     const { username, image, description } = userData
 
     useEffect(() => {
@@ -48,11 +48,11 @@ const EditProfileForm = () => {
     }
 
     const handleFileUpload = e => {
-        
+
         setLoadingImage(true)
 
         const formData = new FormData()
-        
+
         formData.append('image', e.target.files[0])
 
         uploadServices
@@ -88,7 +88,7 @@ const EditProfileForm = () => {
 
             <div className="d-grid">
             </div>
-            <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Editar'}</Button>
+            <div className="edit-profile-bt" style={{ color: '#fffff' }} type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Editar'}</div>
 
         </Form>
     )

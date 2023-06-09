@@ -32,7 +32,6 @@ const GamePage = () => {
                     setDeck(data)
                 })
                 .catch(err => console.log(err))
-
         }
     },[] )
 

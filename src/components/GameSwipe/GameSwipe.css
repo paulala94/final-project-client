@@ -26,10 +26,9 @@
 
 .card-game-p {
     color: white;
-    font-size: 320px;
+    font-size: 30px;
     font-weight: bolder;
-    line-height: 1.2;
-
+    line-height: 8;
 }
 
 .card {

@@ -169,7 +169,7 @@ function GameSwipe({ randomOG }) {
                 </div>
 
             </div>
-            {showModal && (
+            {/* {showModal && (
                 <Modal
                     show={showModal}
                     onHide={() => setShowModal(false)}
@@ -219,7 +219,7 @@ function GameSwipe({ randomOG }) {
                         style={{ color: "#f77e21", fontSize: "100px" }}
                     />
                 </div>
-            </div>
+            </div>*/}
         </div>
     );
 }

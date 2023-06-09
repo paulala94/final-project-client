@@ -4,7 +4,10 @@ import { Modal, Card } from 'react-bootstrap'
 import Timer from '../Timer/Timer'
 import RoundModal from '../RoundModal/RoundModal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import {
+  faCheckCircle,
+  faTimesCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 
 function GameSwipe({ randomOG }) {
@@ -87,10 +90,10 @@ function GameSwipe({ randomOG }) {
     }
 
     const nextRound = () => {
-        shuffleCards()
         setGuessedCards([])
         updatedWithGuessedCards()
         setTimeCounter(0)
+        shuffleCards()
     }
 
     useEffect(() => {
@@ -100,68 +103,81 @@ function GameSwipe({ randomOG }) {
     }, [rounds])
 
     const shuffleCards = () => {
-        guessedCards.sort(() => Math.random()-0.5)
+        guessedCards?.sort(() => Math.random()-0.5)
+        setrandomOGCards(guessedCards)
     }
 
     return (
+      <div>
         <div>
-            <div>
-                {timeCounter === ROUND_TIME && (
-                    currentTeam === 1
-                        ?
-                        <>
-                            <div onClick={handleClick} className='btn-players'><strong>¡¡TE TOCA EQUIPO 1!!</strong></div>
-                        </>
-                        :
-                        <>
-                            <div onClick={handleClick} className='btn-players'>¡¡TE TOCA EQUIPO 2!!</div>
-                        </>
-                )}
-            </div>
-            {
-                showModal
-                &&
-                <Modal show={showModal} onHide={() => setShowModal(false)}
-                    size="lg"
-                    aria-labelledby="contained-modal-title-vcenter"
-                    centered
-                    className='text-center' >
-                    <RoundModal winner={winner} style="{{color:'#F77E21'}}" />
-                    <div onClick={nextRound} className='next-round'>
-                        SIGUIENTE RONDA
-                    </div>
-                </Modal>
-            }
-            <div style={{ display: timerRunning ? 'inherit' : 'none' }}>
-                <div className='cardContainer'>
-                    {randomOGCards?.map(card => (
-
-                        <div key={card._id} className='card-game'>
-                            <div className='card-game'>
-                                <p className='card-game-p'>{card.name}</p>
-                            </div>
-                        </div>
-
-                    ))}
-
+          {timeCounter === ROUND_TIME &&
+            (currentTeam === 1 ? (
+              <>
+                <div onClick={handleClick} className="btn-players">
+                  <strong>¡¡TE TOCA EQUIPO 1!!</strong>
                 </div>
-                <Timer setTimeCounter={setTimeCounter} ROUND_TIME={ROUND_TIME} timerRunning={timerRunning} setTimerRunning={setTimerRunning} timeCounter={timeCounter} startRound={startRound} setStartRound={setStartRound} currentTeam={currentTeam} setCurrentTeam={setCurrentTeam}
-                />
-
-                <div onClick={handleCorrect} className='btn-acierto scale-up-center'>
-
-                    <FontAwesomeIcon icon={faCheckCircle} style={{ color: "#F77E21", fontSize: "100px" }} />
-
+              </>
+            ) : (
+              <>
+                <div onClick={handleClick} className="btn-players">
+                  ¡¡TE TOCA EQUIPO 2!!
                 </div>
-
-                {/* <div>
-                     <Button onClick={handlePassed}>fallo</Button>
-                </div> */}
-
-            </div>
-
+              </>
+            ))}
         </div>
-    )
+        {showModal && (
+          <Modal
+            show={showModal}
+            onHide={() => setShowModal(false)}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+            className="text-center"
+          >
+            <RoundModal winner={winner} style="{{color:'#F77E21'}}" />
+            <div onClick={nextRound} className="next-round">
+              SIGUIENTE RONDA
+            </div>
+          </Modal>
+        )}
+        <div style={{ display: timerRunning ? "inherit" : "none" }}>
+          <div className="cardContainer">
+            {randomOGCards?.map((card) => (
+              <div key={card._id} className="card-game">
+                <div className="card-game">
+                  <p className="card-game-p">{card.name}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <Timer
+            setTimeCounter={setTimeCounter}
+            ROUND_TIME={ROUND_TIME}
+            timerRunning={timerRunning}
+            setTimerRunning={setTimerRunning}
+            timeCounter={timeCounter}
+            startRound={startRound}
+            setStartRound={setStartRound}
+            currentTeam={currentTeam}
+            setCurrentTeam={setCurrentTeam}
+          />
+
+          <div onClick={handleCorrect} className="btn-acierto scale-up-center">
+            <FontAwesomeIcon
+              icon={faCheckCircle}
+              style={{ color: "#F77E21", fontSize: "100px" }}
+            />
+          </div>
+
+          <div className="btn-acierto scale-up-center">
+            <FontAwesomeIcon
+              icon={faTimesCircle}
+              style={{ color: "#f77e21", fontSize: "100px" }}
+            />
+          </div>
+        </div>
+      </div>
+    );
 }
 
 export default GameSwipe

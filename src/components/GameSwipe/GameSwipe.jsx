@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './GameSwipe.css'
-import { Modal, Card } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 import Timer from '../Timer/Timer'
 import RoundModal from '../RoundModal/RoundModal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,7 +9,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
 function GameSwipe({ randomOG }) {
 
-    const ROUND_TIME = 5000
+    const ROUND_TIME = 30
     const [randomOGCards, setrandomOGCards] = useState(null)
     const [currentTeam, setCurrentTeam] = useState(1)
     const [showModal, setShowModal] = useState(false)
@@ -123,7 +123,7 @@ function GameSwipe({ randomOG }) {
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
                     className='text-center' >
-                    <RoundModal winner={winner} style="{{color:'#F77E21'}}" />
+                    <RoundModal winner={winner} />
                     <div onClick={nextRound} className='next-round'>
                         SIGUIENTE RONDA
                     </div>
@@ -144,16 +144,19 @@ function GameSwipe({ randomOG }) {
                 </div>
                 <Timer setTimeCounter={setTimeCounter} ROUND_TIME={ROUND_TIME} timerRunning={timerRunning} setTimerRunning={setTimerRunning} timeCounter={timeCounter} startRound={startRound} setStartRound={setStartRound} currentTeam={currentTeam} setCurrentTeam={setCurrentTeam}
                 />
+                <div className="game-buttons d-flex justify-content-center">
 
-                <div onClick={handleCorrect} className='btn-acierto scale-up-center'>
+                    <div onClick={handleCorrect} className='btn-acierto scale-up-center'>
 
-                    <FontAwesomeIcon icon={faCheckCircle} style={{ color: "#F77E21", fontSize: "100px" }} />
+                        <FontAwesomeIcon icon={faCheckCircle} style={{ color: "#F77E21", fontSize: "100px" }} />
 
+                    </div>
+
+                    {/* <div>
+                        <Button> <FontAwesomeIcon icon={faCheckCircle} style={{ color: "#F77E21", fontSize: "100px" }} /></Button>
+                    </div> */}
                 </div>
 
-                {/* <div>
-                     <Button onClick={handlePassed}>fallo</Button>
-                </div> */}
 
             </div>
 

@@ -22,7 +22,6 @@ function GameSwipe({ randomOG }) {
     const [teamOnePoints, setTeamOnePoints] = useState(0)
     const [teamTwoPoints, setTeamTwoPoints] = useState(0)
 
-
     useEffect(() => {
         if (timeCounter <= 0) {
             setTimerRunning(false)
@@ -40,7 +39,6 @@ function GameSwipe({ randomOG }) {
 
     useEffect(() => {
         handleRounds()
-
     }, [randomOGCards])
 
     useEffect(() => {
@@ -89,6 +87,7 @@ function GameSwipe({ randomOG }) {
     }
 
     const nextRound = () => {
+        shuffleCards()
         setGuessedCards([])
         updatedWithGuessedCards()
         setTimeCounter(0)
@@ -99,6 +98,10 @@ function GameSwipe({ randomOG }) {
             setShowModal(true)
         }
     }, [rounds])
+
+    const shuffleCards = () => {
+        guessedCards.sort(() => Math.random()-0.5)
+    }
 
     return (
         <div>

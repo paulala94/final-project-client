@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import GameSwipe from '../GameSwipe/GameSwipe'
 
 const Timer = ({ timeCounter, setTimeCounter, ROUND_TIME, startRound, setStartRound, currentTeam, setCurrentTeam }) => {
 

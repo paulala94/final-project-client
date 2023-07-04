@@ -12,7 +12,7 @@ import {
 
 function GameSwipe({ randomOG }) {
 
-    const ROUND_TIME = 5000
+    const ROUND_TIME = 100
     const [randomOGCards, setrandomOGCards] = useState(null)
     const [currentTeam, setCurrentTeam] = useState(1)
     const [showModal, setShowModal] = useState(false)
@@ -24,6 +24,12 @@ function GameSwipe({ randomOG }) {
     const [guessedCards, setGuessedCards] = useState([])
     const [teamOnePoints, setTeamOnePoints] = useState(0)
     const [teamTwoPoints, setTeamTwoPoints] = useState(0)
+
+    // useEffect(() => {
+    //   if (randomOGCards && randomOGCards.length > 0) {
+    //     setCurrentCard(randomOGCards[0])
+    //   }
+    // }, [randomOGCards])
 
     useEffect(() => {
         if (timeCounter <= 0) {
@@ -49,13 +55,13 @@ function GameSwipe({ randomOG }) {
     }, [randomOG])
 
     const handleClick = () => {
-        setTimerRunning(true)
-        setTimeCounter(ROUND_TIME)
-        setStartRound(true)
+      setTimerRunning(true);
+      setTimeCounter(ROUND_TIME);
+      setStartRound(true);
     }
 
     const handleCorrect = () => {
-        const currentCard = randomOGCards?.find(card => card.guessed === 0) // no se si esto pilla currrent card
+        const currentCard = randomOGCards?.find(card => card.guessed === 0) 
 
         if (currentCard) {
             const updatedGuessedCards = [...guessedCards, { ...currentCard, guessed: currentTeam }]
@@ -93,7 +99,7 @@ function GameSwipe({ randomOG }) {
         setGuessedCards([])
         updatedWithGuessedCards()
         setTimeCounter(0)
-        shuffleCards()
+        // shuffleCards()
     }
 
     useEffect(() => {
@@ -102,10 +108,18 @@ function GameSwipe({ randomOG }) {
         }
     }, [rounds])
 
-    const shuffleCards = () => {
-        guessedCards?.sort(() => Math.random()-0.5)
-        setrandomOGCards(guessedCards)
-    }
+    // const handlePassed = () => {
+    //   const updatedRandomOGCards = [...randomOGCards]
+    //   updatedRandomOGCards.push(updatedRandomOGCards.shift()) // Mueve la primera carta al final del array
+    //   setrandomOGCards(updatedRandomOGCards)
+    //   setCurrentCard(updatedRandomOGCards[0]) // Establece la nueva carta actual
+    // }
+
+
+    // const shuffleCards = () => {
+    //     guessedCards?.sort(() => Math.random()-0.5)
+    //     setrandomOGCards(guessedCards)
+    // }
 
     return (
       <div>
@@ -168,13 +182,13 @@ function GameSwipe({ randomOG }) {
               style={{ color: "#F77E21", fontSize: "100px" }}
             />
           </div>
-
+{/* 
           <div className="btn-acierto scale-up-center">
             <FontAwesomeIcon
               icon={faTimesCircle}
               style={{ color: "#f77e21", fontSize: "100px" }}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     );

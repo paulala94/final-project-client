@@ -34,7 +34,7 @@ const EditCardForm = () => {
 
         cardService
             .editCard(_id, cardData)
-            .then(() => navigate('/todas-las-cartas'))
+            .then(() => navigate('/perfil'))
             .catch(err => console.log(err))
     }
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import cardService from '../../services/cardService';
 import { Form, Button, Modal } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom"
 import CreateCardModal from '../CreateCardModal/CreateCardModal';
 import { CARD_GENRES_ARRAY } from '../../consts/card-consts';
 

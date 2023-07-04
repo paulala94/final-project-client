@@ -22,6 +22,12 @@
     text-decoration: none;
 }
 
+
+.btn-primary.btn:hover {
+    background-color: #f77f20 !important;
+    border-color: #f77f20 !important;
+}
+
 .card-bt:focus,
 .dropdown-toggle:focus,
 .btn:focus,

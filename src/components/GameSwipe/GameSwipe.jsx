@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import './GameSwipe.css'
-import { Modal, Card } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 import Timer from '../Timer/Timer'
 import RoundModal from '../RoundModal/RoundModal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faCheckCircle,
-  faTimesCircle,
+    faCheckCircle,
+    faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 
 function GameSwipe({ randomOG }) {
 
-    const ROUND_TIME = 100
+    const ROUND_TIME = 30
     const [randomOGCards, setrandomOGCards] = useState(null)
     const [currentTeam, setCurrentTeam] = useState(1)
     const [showModal, setShowModal] = useState(false)
@@ -99,7 +99,8 @@ function GameSwipe({ randomOG }) {
         setGuessedCards([])
         updatedWithGuessedCards()
         setTimeCounter(0)
-        // shuffleCards()
+        shuffleCards()
+        setShowModal(false)
     }
 
     useEffect(() => {
@@ -108,89 +109,128 @@ function GameSwipe({ randomOG }) {
         }
     }, [rounds])
 
-    // const handlePassed = () => {
-    //   const updatedRandomOGCards = [...randomOGCards]
-    //   updatedRandomOGCards.push(updatedRandomOGCards.shift()) // Mueve la primera carta al final del array
-    //   setrandomOGCards(updatedRandomOGCards)
-    //   setCurrentCard(updatedRandomOGCards[0]) // Establece la nueva carta actual
-    // }
-
-
-    // const shuffleCards = () => {
-    //     guessedCards?.sort(() => Math.random()-0.5)
-    //     setrandomOGCards(guessedCards)
-    // }
+    const shuffleCards = () => {
+        guessedCards?.sort(() => Math.random() - 0.5)
+        setrandomOGCards(guessedCards)
+    }
 
     return (
-      <div>
         <div>
-          {timeCounter === ROUND_TIME &&
-            (currentTeam === 1 ? (
-              <>
-                <div onClick={handleClick} className="btn-players">
-                  <strong>¡¡TE TOCA EQUIPO 1!!</strong>
+            <div>
+                <div>
+                    {timeCounter === ROUND_TIME && (
+                        currentTeam === 1
+                            ?
+                            <>
+                                <div onClick={handleClick} className='btn-players'><strong>¡¡TE TOCA EQUIPO 1!!</strong></div>
+                            </>
+                            :
+                            <>
+                                <div onClick={handleClick} className='btn-players'>¡¡TE TOCA EQUIPO 2!!</div>
+                            </>
+                    )}
                 </div>
-              </>
-            ) : (
-              <>
-                <div onClick={handleClick} className="btn-players">
-                  ¡¡TE TOCA EQUIPO 2!!
-                </div>
-              </>
-            ))}
-        </div>
-        {showModal && (
-          <Modal
-            show={showModal}
-            onHide={() => setShowModal(false)}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-            className="text-center"
-          >
-            <RoundModal winner={winner} style="{{color:'#F77E21'}}" />
-            <div onClick={nextRound} className="next-round">
-              SIGUIENTE RONDA
-            </div>
-          </Modal>
-        )}
-        <div style={{ display: timerRunning ? "inherit" : "none" }}>
-          <div className="cardContainer">
-            {randomOGCards?.map((card) => (
-              <div key={card._id} className="card-game">
-                <div className="card-game">
-                  <p className="card-game-p">{card.name}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <Timer
-            setTimeCounter={setTimeCounter}
-            ROUND_TIME={ROUND_TIME}
-            timerRunning={timerRunning}
-            setTimerRunning={setTimerRunning}
-            timeCounter={timeCounter}
-            startRound={startRound}
-            setStartRound={setStartRound}
-            currentTeam={currentTeam}
-            setCurrentTeam={setCurrentTeam}
-          />
+                {
+                    showModal && (
+                        <Modal
+                            show={showModal}
+                            onHide={() => setShowModal(false)}
+                            size="lg"
+                            aria-labelledby="contained-modal-title-vcenter"
+                            centered
+                            className="text-center"
+                        >
+                            <RoundModal winner={winner} />
+                            <div onClick={nextRound} className="next-round">
+                                SIGUIENTE RONDA
+                            </div>
+                        </Modal>
+                    )
+                }
+                <div style={{ display: timerRunning ? 'inherit' : 'none' }}>
+                    <div className='cardContainer'>
+                        {randomOGCards?.map(card => (
 
-          <div onClick={handleCorrect} className="btn-acierto scale-up-center">
-            <FontAwesomeIcon
-              icon={faCheckCircle}
-              style={{ color: "#F77E21", fontSize: "100px" }}
-            />
-          </div>
-{/* 
-          <div className="btn-acierto scale-up-center">
-            <FontAwesomeIcon
-              icon={faTimesCircle}
-              style={{ color: "#f77e21", fontSize: "100px" }}
-            />
-          </div> */}
+                            <div key={card._id} className='card-game'>
+                                <div className='card-game'>
+                                    <p className='card-game-p'>{card.name}</p>
+                                </div>
+                            </div>
+
+                        ))}
+
+                    </div>
+                    <Timer setTimeCounter={setTimeCounter} ROUND_TIME={ROUND_TIME} timerRunning={timerRunning} setTimerRunning={setTimerRunning} timeCounter={timeCounter} startRound={startRound} setStartRound={setStartRound} currentTeam={currentTeam} setCurrentTeam={setCurrentTeam}
+                    />
+                    <div className="game-buttons d-flex justify-content-center">
+
+                        <div onClick={handleCorrect} className='btn-acierto scale-up-center'>
+
+                            <FontAwesomeIcon icon={faCheckCircle} style={{ color: "#F77E21", fontSize: "100px" }} />
+
+                        </div>
+
+                        {/* <div>
+                        <Button> <FontAwesomeIcon icon={faCheckCircle} style={{ color: "#F77E21", fontSize: "100px" }} /></Button>
+                    </div> */}
+                    </div>
+
+
+                </div>
+
+            </div>
+            {/* {showModal && (
+                <Modal
+                    show={showModal}
+                    onHide={() => setShowModal(false)}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                    className="text-center"
+                >
+                    <RoundModal winner={winner} style="{{color:'#F77E21'}}" />
+                    <div onClick={nextRound} className="next-round">
+                        SIGUIENTE RONDA
+                    </div>
+                </Modal>
+            )}
+            <div style={{ display: timerRunning ? "inherit" : "none" }}>
+                <div className="cardContainer">
+                    {randomOGCards?.map((card) => (
+                        <div key={card._id} className="card-game">
+                            <div className="card-game">
+                                <p className="card-game-p">{card.name}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <Timer
+                    setTimeCounter={setTimeCounter}
+                    ROUND_TIME={ROUND_TIME}
+                    timerRunning={timerRunning}
+                    setTimerRunning={setTimerRunning}
+                    timeCounter={timeCounter}
+                    startRound={startRound}
+                    setStartRound={setStartRound}
+                    currentTeam={currentTeam}
+                    setCurrentTeam={setCurrentTeam}
+                />
+
+                <div onClick={handleCorrect} className="btn-acierto scale-up-center">
+                    <FontAwesomeIcon
+                        icon={faCheckCircle}
+                        style={{ color: "#F77E21", fontSize: "100px" }}
+                    />
+                </div>
+
+                <div className="btn-acierto scale-up-center">
+                    <FontAwesomeIcon
+                        icon={faTimesCircle}
+                        style={{ color: "#f77e21", fontSize: "100px" }}
+                    />
+                </div>
+            </div>*/}
         </div>
-      </div>
     );
 }
 

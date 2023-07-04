@@ -94,6 +94,7 @@ function GameSwipe({ randomOG }) {
         updatedWithGuessedCards()
         setTimeCounter(0)
         shuffleCards()
+        setShowModal(false)
     }
 
     useEffect(() => {
@@ -124,18 +125,21 @@ function GameSwipe({ randomOG }) {
                     )}
                 </div>
                 {
-                    showModal
-                    &&
-                    <Modal show={showModal} onHide={() => setShowModal(false)}
-                        size="lg"
-                        aria-labelledby="contained-modal-title-vcenter"
-                        centered
-                        className='text-center' >
-                        <RoundModal winner={winner} />
-                        <div onClick={nextRound} className='next-round'>
-                            SIGUIENTE RONDA
-                        </div>
-                    </Modal>
+                    showModal && (
+                        <Modal
+                            show={showModal}
+                            onHide={() => setShowModal(false)}
+                            size="lg"
+                            aria-labelledby="contained-modal-title-vcenter"
+                            centered
+                            className="text-center"
+                        >
+                            <RoundModal winner={winner} />
+                            <div onClick={nextRound} className="next-round">
+                                SIGUIENTE RONDA
+                            </div>
+                        </Modal>
+                    )
                 }
                 <div style={{ display: timerRunning ? 'inherit' : 'none' }}>
                     <div className='cardContainer'>

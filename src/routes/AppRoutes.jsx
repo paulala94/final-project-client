@@ -18,6 +18,7 @@ import UserCardsListPage from '../pages/UserCardsListPage/UserCardsListPage'
 import DeckDetailsPage from '../pages/DeckDetailsPage/DeckDetailsPage'
 
 import PrivateRoute from './PrivateRoutes'
+import ModalPage from '../pages/ModalPage'
 
 
 const AppRoutes = () => {
@@ -30,6 +31,9 @@ const AppRoutes = () => {
             <Route path="/registro" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/como-jugar" element={<GameRulesPage />} />
+            <Route path="/modal" element={<ModalPage />} />
+
+
 
             <Route path='' element={<PrivateRoute admittedRoles={['ADMIN', 'USER']} />}>
                 <Route path="/perfil" element={<ProfilePage />} />
